@@ -1,100 +1,100 @@
 [
   {
     "id": 1,
-    "title": "Protect from UV Rays",
-    "description": "Shield your eyes from harmful ultraviolet radiation",
+    "title": "Lindungi dari Sinar UV",
+    "description": "Lindungi mata Anda dari radiasi ultraviolet yang berbahaya",
     "icon": "Sun",
     "tips": [
-      "Wear sunglasses with 100% UV protection",
-      "Choose wraparound styles for maximum coverage",
-      "Wear a wide-brimmed hat outdoors",
-      "Avoid direct sun during peak hours (10am-4pm)"
+      "Gunakan kacamata hitam dengan perlindungan UV 100%",
+      "Pilih model yang menutupi bagian samping untuk perlindungan maksimal",
+      "Gunakan topi lebar saat berada di luar ruangan",
+      "Hindari paparan sinar matahari langsung pada jam terik (10 pagi - 4 sore)"
     ]
   },
   {
     "id": 2,
-    "title": "Manage Screen Time",
-    "description": "Reduce digital eye strain and fatigue",
+    "title": "Kelola Waktu Menatap Layar",
+    "description": "Kurangi ketegangan mata digital dan kelelahan",
     "icon": "Monitor",
     "tips": [
-      "Follow the 20-20-20 rule: Every 20 minutes, look 20 feet away for 20 seconds",
-      "Position screen 20-26 inches from your eyes",
-      "Adjust brightness to match surroundings",
-      "Use blue light filters in the evening",
-      "Keep screen slightly below eye level"
+      "Ikuti aturan 20-20-20: Setiap 20 menit, lihat benda sejauh 20 kaki selama 20 detik",
+      "Posisikan layar 50-65 cm dari mata Anda",
+      "Sesuaikan kecerahan agar serasi dengan lingkungan sekitar",
+      "Gunakan filter cahaya biru di malam hari",
+      "Posisikan layar sedikit di bawah tingkat pandangan mata"
     ]
   },
   {
     "id": 3,
-    "title": "Stay Hydrated",
-    "description": "Maintain moisture for optimal eye function",
+    "title": "Tetap Terhidrasi",
+    "description": "Pertahankan kelembapan untuk fungsi mata yang optimal",
     "icon": "Droplets",
     "tips": [
-      "Drink 8-10 glasses of water daily",
-      "Use a humidifier in dry environments",
-      "Apply artificial tears if eyes feel dry",
-      "Blink frequently, especially during screen use"
+      "Minum 8-10 gelas air putih setiap hari",
+      "Gunakan humidifier (pelembap udara) di ruangan yang kering atau ber-AC",
+      "Gunakan tetes mata buatan jika mata terasa kering",
+      "Sering berkedip, terutama saat menatap layar"
     ]
   },
   {
     "id": 4,
-    "title": "Regular Eye Exams",
-    "description": "Detect problems early through professional check-ups",
+    "title": "Pemeriksaan Mata Rutin",
+    "description": "Deteksi masalah sedini mungkin melalui pemeriksaan profesional",
     "icon": "Eye",
     "tips": [
-      "Adults: Get comprehensive exam every 1-2 years",
-      "Over 60: Annual exams recommended",
-      "Track any vision changes between visits",
-      "Inform doctor of family eye disease history"
+      "Orang dewasa: Lakukan pemeriksaan komplit setiap 1-2 tahun",
+      "Usia di atas 60: Direkomendasikan pemeriksaan setiap tahun",
+      "Catat setiap perubahan penglihatan menjelang jadwal kontrol",
+      "Beri tahu dokter soal riwayat penyakit mata pada keluarga"
     ]
   },
   {
     "id": 5,
-    "title": "Limit Caffeine & Alcohol",
-    "description": "Reduce substances that can affect eye health",
+    "title": "Batasi Kafein & Alkohol",
+    "description": "Kurangi zat yang dapat memengaruhi kesehatan mata",
     "icon": "Coffee",
     "tips": [
-      "Limit caffeine intake, especially before bed",
-      "Moderate alcohol consumption",
-      "Stay hydrated when consuming these beverages",
-      "Monitor how they affect your vision or comfort"
+      "Batasi asupan kafein, terutama sebelum tidur",
+      "Konsumsi alkohol sewajarnya saja",
+      "Tetap minum air putih yang cukup saat mengonsumsi minuman tersebut",
+      "Perhatikan bagaimana mereka memengaruhi penglihatan atau kenyamanan Anda"
     ]
   },
   {
     "id": 6,
-    "title": "Get Quality Sleep",
-    "description": "Allow eyes to rest and recover",
+    "title": "Tidur Berkualitas",
+    "description": "Beri mata waktu istirahat untuk memulihkan diri",
     "icon": "Moon",
     "tips": [
-      "Aim for 7-9 hours of sleep nightly",
-      "Keep bedroom dark and cool",
-      "Avoid screens 1 hour before bed",
-      "Use sleep mask if needed"
+      "Targetkan 7-9 jam tidur setiap malam",
+      "Jaga agar kamar tidur gelap dan sejuk",
+      "Hindari menatap layar 1 jam sebelum tidur",
+      "Gunakan masker penutup mata jika diperlukan"
     ]
   },
   {
     "id": 7,
-    "title": "Eat Eye-Healthy Foods",
-    "description": "Nourish your eyes with the right nutrients",
+    "title": "Konsumsi Makanan Sehat Untuk Mata",
+    "description": "Nutrisi mata Anda dengan gizi yang tepat",
     "icon": "Apple",
     "tips": [
-      "Leafy greens: spinach, kale (lutein)",
-      "Fish: salmon, tuna (omega-3s)",
-      "Citrus fruits (vitamin C)",
-      "Carrots, sweet potatoes (beta-carotene)",
-      "Nuts and seeds (vitamin E)"
+      "Sayuran hijau: bayam, kangkung (lutein)",
+      "Ikan: salmon, tuna (omega-3)",
+      "Buah jeruk/sitrus (vitamin C)",
+      "Wortel, ubi jalar (beta-karoten)",
+      "Kacang-kacangan dan biji-bijian (vitamin E)"
     ]
   },
   {
     "id": 8,
-    "title": "Exercise Regularly",
-    "description": "Improve circulation for better eye health",
+    "title": "Olahraga Teratur",
+    "description": "Tingkatkan sirkulasi darah untuk kesehatan mata yang lebih baik",
     "icon": "Activity",
     "tips": [
-      "30 minutes of moderate exercise daily",
-      "Activities: walking, swimming, cycling",
-      "Exercise helps prevent diabetes and hypertension",
-      "Both conditions can affect vision"
+      "Luangkan 30 menit olahraga ringan setiap hari",
+      "Aktivitas: berjalan santai, berenang, bersepeda",
+      "Olahraga membantu mencegah diabetes dan hipertensi",
+      "Kedua kondisi tersebut sangat memengaruhi kualitas penglihatan"
     ]
   }
 ]

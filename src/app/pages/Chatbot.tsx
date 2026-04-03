@@ -36,13 +36,14 @@ async function callGemini(
 Your role is to provide helpful, accurate information about eye health, conditions, prevention, and care tips.
 
 IMPORTANT RULES:
-- Always be warm, empathetic, and easy to understand
-- Provide practical, actionable advice
-- For serious symptoms (sudden vision loss, severe eye pain, floaters + flashes), always urge immediate professional care
-- Never diagnose — instead, help users understand symptoms and when to seek care
-- Keep responses concise but thorough (2-5 sentences or bullet points)
-- This app is for awareness and education only — remind users to see professionals for diagnosis
-- Use the knowledge base below as your primary source of information
+- ALWAYS respond in Indonesian (Bahasa Indonesia).
+- Always be warm, empathetic, and easy to understand.
+- Provide practical, actionable advice.
+- For serious symptoms (sudden vision loss, severe eye pain, floaters + flashes), always urge immediate professional care.
+- Never diagnose — instead, help users understand symptoms and when to seek care.
+- Keep responses concise but thorough (2-5 sentences or bullet points).
+- This app is for awareness and education only — remind users to see professionals for diagnosis.
+- Use the knowledge base below as your primary source of information.
 
 KNOWLEDGE BASE:
 ${knowledgeBase}`;
@@ -85,29 +86,29 @@ ${knowledgeBase}`;
   }
 
   const data = await response.json();
-  return data.candidates?.[0]?.content?.parts?.[0]?.text ?? "I'm sorry, I couldn't generate a response. Please try again.";
+  return data.candidates?.[0]?.content?.parts?.[0]?.text ?? "Maaf, saya tidak dapat membuat respons. Silakan coba lagi.";
 }
 
 // Fallback local response when no API key is configured
 function localResponse(userMessage: string): string {
   const msg = userMessage.toLowerCase();
 
-  if (msg.includes("dry") && msg.includes("eye"))
-    return "Dry eyes are caused by insufficient tear production or rapid evaporation. Try lubricating eye drops, blink frequently during screen use, use a humidifier, and stay hydrated. If symptoms persist, see an eye care professional.";
-  if (msg.includes("screen") || msg.includes("computer"))
-    return "For digital eye strain: Follow the 20-20-20 rule (every 20 minutes, look 20 feet away for 20 seconds), reduce screen glare, position your screen slightly below eye level, and blink frequently.";
-  if (msg.includes("cataract"))
-    return "Cataracts cause cloudy, blurry vision due to lens clouding — most commonly age-related. Early signs include glare sensitivity and faded colors. They're treatable with highly effective surgery. Schedule an eye exam if you notice these symptoms.";
-  if (msg.includes("glaucoma"))
-    return "Glaucoma damages the optic nerve, often from high eye pressure. It's the 'silent thief of sight' — usually no symptoms until advanced. Regular eye exams are crucial for early detection. It's treatable but not curable, so early detection matters greatly.";
-  if (msg.includes("food") || msg.includes("diet") || msg.includes("vitamin"))
-    return "Foods great for eye health: leafy greens (lutein), fatty fish like salmon (omega-3s), carrots and sweet potatoes (beta-carotene/vitamin A), citrus fruits (vitamin C), and nuts/seeds (vitamin E).";
-  if (msg.includes("floater") || msg.includes("flash"))
-    return "⚠️ If you suddenly experience many new floaters, flashes of light, or a shadow/curtain over your vision — this could be a retinal detachment. Please seek EMERGENCY eye care immediately. This is time-sensitive.";
-  if (msg.includes("hello") || msg.includes("hi") || msg.includes("hey"))
-    return "Hi there! 👋 I'm your EyeCare AI assistant. I can help answer questions about eye conditions, prevention tips, when to see a doctor, and much more. What would you like to know?";
+  if (msg.includes("kering") && msg.includes("mata"))
+    return "Mata kering disebabkan oleh produksi air mata yang tidak cukup atau penguapan yang cepat. Coba gunakan obat tetes mata, sering berkedip saat menggunakan layar, gunakan pelembap udara, dan tetap terhidrasi. Jika gejala berlanjut, segera temui dokter mata.";
+  if (msg.includes("layar") || msg.includes("komputer"))
+    return "Untuk ketegangan mata digital: Ikuti aturan 20-20-20 (setiap 20 menit, lihat benda sejauh 20 kaki selama 20 detik), kurangi silau layar, posisikan layar sedikit di bawah ketinggian mata, dan sering berkedip.";
+  if (msg.includes("katarak"))
+    return "Katarak menyebabkan penglihatan keruh dan kabur karena pengaburan lensa — paling sering terkait usia. Tanda-tanda awalnya termasuk kepekaan terhadap silau dan warna yang memudar. Ini dapat diobati dengan operasi yang sangat efektif. Jadwalkan pemeriksaan mata jika Anda menyadari gejala-gejala ini.";
+  if (msg.includes("glaukoma"))
+    return "Glaukoma merusak saraf optik, seringkali akibat tekanan mata yang tinggi. Ini adalah 'pencuri penglihatan diam-diam' — biasanya tidak ada gejala hingga tahap lanjut. Pemeriksaan mata rutin sangat penting untuk deteksi dini. Ini dapat diobati tetapi tidak dapat disembuhkan, jadi deteksi dini sangatlah penting.";
+  if (msg.includes("makanan") || msg.includes("diet") || msg.includes("vitamin"))
+    return "Makanan yang bagus untuk kesehatan mata: sayuran hijau (lutein), ikan berlemak seperti salmon (omega-3), wortel dan ubi jalar (beta-karoten/vitamin A), buah jeruk (vitamin C), dan kacang/biji-bijian (vitamin E).";
+  if (msg.includes("floater") || msg.includes("kilatan"))
+    return "⚠️ Jika Anda tiba-tiba mengalami banyak floaters baru, kilatan cahaya, atau bayangan/tirai menutupi penglihatan Anda — ini bisa jadi ablasi retina. Segera cari perawatan mata DARURAT. Ini sangat mendesak.";
+  if (msg.includes("halo") || msg.includes("hai") || msg.includes("hei"))
+    return "Hai! 👋 Saya asisten EyeCare AI Anda. Saya dapat membantu menjawab pertanyaan tentang kondisi mata, tips pencegahan, kapan harus ke dokter, dan banyak lagi. Apa yang ingin Anda ketahui?";
 
-  return "That's a great question about eye health! For the most accurate and personalized guidance, I recommend consulting with an eye care professional. In the meantime, would you like to know about preventive care practices or specific symptoms? You can also check our Eye Conditions Glossary for more information.";
+  return "Itu pertanyaan yang bagus tentang kesehatan mata! Untuk panduan yang paling akurat dan dipersonalisasi, saya sarankan untuk berkonsultasi dengan ahli perawatan mata. Sementara itu, apakah Anda ingin tahu tentang praktik perawatan pencegahan atau gejala spesifik? Anda juga dapat memeriksa Glosarium Kondisi Mata kami untuk informasi lebih lanjut.";
 }
 
 export function Chatbot() {
@@ -164,8 +165,8 @@ export function Chatbot() {
     return {
       id: "welcome",
       text: GEMINI_API_KEY
-        ? "Hi! I'm EyeCare AI, powered by Google Gemini. Ask me anything about eye health — conditions, prevention, symptoms, nutrition, and more! 👁️"
-        : "Hi! I'm EyeCare AI. I can answer common questions about eye health. Note: For full AI capabilities, an API key needs to be configured. 👁️",
+        ? "Hai! Saya EyeCare AI, diberdayakan oleh Google Gemini. Tanyakan apa saja tentang kesehatan mata — kondisi, pencegahan, gejala, nutrisi, dan lainnya! 👁️"
+        : "Hai! Saya EyeCare AI. Saya dapat menjawab pertanyaan umum tentang kesehatan mata. Catatan: Untuk kemampuan AI penuh, kunci API harus dikonfigurasi. 👁️",
       sender: "bot",
       timestamp: new Date(),
     };
@@ -207,7 +208,7 @@ export function Chatbot() {
     } catch (err: any) {
       const errorMsg: Message = {
         id: (Date.now() + 1).toString(),
-        text: `I encountered an issue connecting to the AI service. Please check your internet connection and try again. (${err?.message || "Unknown error"})`,
+        text: `Saya menemui masalah saat menyambung ke layanan AI. Periksa koneksi internet Anda dan coba lagi. (${err?.message || "Kesalahan tidak diketahui"})`,
         sender: "bot",
         timestamp: new Date(),
       };
@@ -218,10 +219,10 @@ export function Chatbot() {
   };
 
   const quickQuestions = [
-    "How to prevent dry eyes?",
-    "Tips for reducing screen strain",
-    "What foods are good for eyes?",
-    "Signs I need to see a doctor",
+    "Bagaimana cara mencegah mata kering?",
+    "Tips mengurangi ketegangan mata",
+    "Makanan apa yang bagus untuk mata?",
+    "Kapan saya harus ke dokter?",
   ];
 
   return (
@@ -239,7 +240,7 @@ export function Chatbot() {
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div className="flex-1">
-            <h1 className="text-xl">AI Assistant</h1>
+            <h1 className="text-xl">Asisten AI</h1>
           </div>
         </div>
 
@@ -251,7 +252,7 @@ export function Chatbot() {
             <div className="flex-1">
               <h3 className="text-sm">EyeCare AI</h3>
               <p className="text-xs text-muted-foreground">
-                {GEMINI_API_KEY ? "Powered by Google Gemini" : "Knowledge-based responses"}
+                {GEMINI_API_KEY ? "Diberdayakan oleh Google Gemini" : "Respons berbasis data lokal"}
               </p>
             </div>
             <Sparkles className="w-5 h-5 text-cyan-500" />
@@ -262,7 +263,7 @@ export function Chatbot() {
         {apiKeyMissing && (
           <div className="mt-2 flex items-center gap-2 text-xs text-amber-700 bg-amber-50/80 rounded-xl px-3 py-2">
             <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
-            <span>Gemini API key not configured — using built-in responses.</span>
+            <span>Kunci API Gemini tidak dikonfigurasi — menggunakan respons bawaan.</span>
           </div>
         )}
       </div>
@@ -320,7 +321,7 @@ export function Chatbot() {
         {/* Quick Questions */}
         {messages.length <= 1 && (
           <div className="pt-2">
-            <p className="text-xs text-muted-foreground mb-2 px-1">Quick questions:</p>
+            <p className="text-xs text-muted-foreground mb-2 px-1">Pertanyaan cepat:</p>
             <div className="flex flex-wrap gap-2">
               {quickQuestions.map((question, i) => (
                 <button
@@ -349,7 +350,7 @@ export function Chatbot() {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
-            placeholder="Ask me anything about eye health..."
+            placeholder="Tanyakan apa saja tentang kesehatan mata..."
             className="flex-1 backdrop-blur-xl border-white/50 rounded-2xl"
             style={{ background: "rgba(255, 255, 255, 0.7)" }}
           />
@@ -362,7 +363,7 @@ export function Chatbot() {
           </Button>
         </div>
         <p className="text-xs text-center text-muted-foreground mt-2">
-          AI responses are for informational purposes only. Consult a professional for medical advice.
+          Respons AI hanya untuk tujuan informasi. Konsultasikan dengan profesional untuk saran medis.
         </p>
       </div>
     </div>

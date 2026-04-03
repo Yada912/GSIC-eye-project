@@ -18,7 +18,7 @@ export function ProfessionalChat() {
   const [inputText, setInputText] = useState("");
   const [professional] = useState({
     name: "Dr. Sarah Chen",
-    specialty: "Optometrist",
+    specialty: "Dokter Mata (Optometrist)",
     available: true,
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -41,7 +41,7 @@ export function ProfessionalChat() {
       setMessages([
         {
           id: "1",
-          text: "Hello! I'm Dr. Sarah Chen, an optometrist. How can I help you with your eye health today?",
+          text: "Halo! Saya Dr. Sarah Chen, seorang dokter mata. Ada yang bisa saya bantu terkait kesehatan mata Anda hari ini?",
           sender: "professional",
           timestamp: new Date(),
         },
@@ -75,11 +75,11 @@ export function ProfessionalChat() {
     // Mock professional response
     setTimeout(() => {
       const responses = [
-        "Thank you for sharing that. Can you tell me more about when this started?",
-        "I understand your concern. Have you experienced any other symptoms?",
-        "That's helpful information. I recommend scheduling an in-person examination to properly assess this.",
-        "Based on what you've described, this could be related to eye strain. Do you spend a lot of time on screens?",
-        "I'd like to better understand your symptoms. How long have you been experiencing this?",
+        "Terima kasih sudah memberitahu saya. Bisakah Anda ceritakan sejak kapan Anda mengalami ini?",
+        "Saya mengerti kekhawatiran Anda. Apakah Anda mengalami gejala lain?",
+        "Itu informasi yang sangat membantu. Saya sarankan untuk menjadwalkan pemeriksaan langsung agar bisa ditangani dengan tepat.",
+        "Dari yang Anda jelaskan, ini mungkin terkait dengan kelelahan mata. Apakah Anda sering menatap layar seharian?",
+        "Saya ingin memahami gejala Anda lebih jauh. Sudah berapa lama Anda mengalami ini?",
       ];
 
       const response: Message = {
@@ -105,7 +105,7 @@ export function ProfessionalChat() {
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div className="flex-1">
-            <h1 className="text-xl">Professional Chat</h1>
+            <h1 className="text-xl">Obrolan Profesional</h1>
           </div>
         </div>
 
@@ -170,7 +170,7 @@ export function ProfessionalChat() {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
-            placeholder="Type your message..."
+            placeholder="Ketik pesan Anda..."
             className="flex-1 backdrop-blur-xl border-white/50 rounded-2xl"
             style={{ background: "rgba(255, 255, 255, 0.7)" }}
           />
@@ -183,7 +183,7 @@ export function ProfessionalChat() {
           </Button>
         </div>
         <p className="text-xs text-center text-muted-foreground mt-2">
-          Response times may vary. For emergencies, call your local eye care provider.
+          Waktu tunggu respons bisa berbeda-beda. Untuk keadaan darurat, hubungi klinik mata terdekat.
         </p>
       </div>
     </div>

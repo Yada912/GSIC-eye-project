@@ -6,27 +6,28 @@ import { WelcomeDialog } from "../components/WelcomeDialog";
 
 export function Home() {
   const navigate = useNavigate();
+  const isLoggedIn = !!localStorage.getItem("eyecare_user");
 
   const features = [
     {
       icon: Camera,
-      title: "Eye Scanner",
-      description: "AI-powered eye health analysis",
+      title: "Pemindai Mata",
+      description: "Analisis kesehatan mata berbasis AI",
       path: "/scanner",
       color: "from-blue-400 to-cyan-400",
     },
     {
       icon: MessageCircle,
-      title: "Ask a Professional",
-      description: "Chat with eye care experts",
+      title: "Tanya Profesional",
+      description: "Ngobrol dengan ahli perawatan mata",
       path: "/professional",
       color: "from-sky-400 to-blue-500",
       requiresAuth: true,
     },
     {
       icon: Bot,
-      title: "AI Assistant",
-      description: "Get instant answers about eye health",
+      title: "Asisten AI",
+      description: "Dapatkan jawaban instan seputar kesehatan mata",
       path: "/chatbot",
       color: "from-cyan-400 to-teal-400",
       requiresAuth: true,
@@ -36,25 +37,22 @@ export function Home() {
   const resources = [
     {
       icon: BookOpen,
-      title: "Health Guide",
-      description: "Step-by-step eye care tips",
+      title: "Panduan Kesehatan",
+      description: "Tips perawatan mata langkah demi langkah",
       path: "/guide",
     },
     {
       icon: Book,
-      title: "Eye Conditions",
-      description: "Learn about common issues",
+      title: "Kondisi Mata",
+      description: "Pelajari masalah umum pada mata",
       path: "/glossary",
     },
   ];
 
   const handleFeatureClick = (path: string, requiresAuth?: boolean) => {
-    if (requiresAuth) {
-      const user = localStorage.getItem("eyecare_user");
-      if (!user) {
-        navigate("/login", { state: { returnTo: path } });
-        return;
-      }
+    if (requiresAuth && !isLoggedIn) {
+      navigate("/login", { state: { returnTo: path } });
+      return;
     }
     navigate(path);
   };
@@ -73,7 +71,7 @@ export function Home() {
         <h1 className="text-3xl mb-2 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
           EyeCare Companion
         </h1>
-        <p className="text-muted-foreground">Your personal eye health assistant</p>
+        <p className="text-muted-foreground">Asisten kesehatan mata pribadi Anda</p>
       </div>
 
       {/* Hero Card */}
@@ -82,9 +80,9 @@ export function Home() {
           <div className="flex items-start gap-3 mb-3">
             <Sparkles className="w-5 h-5 text-primary mt-1" />
             <div>
-              <h2 className="text-xl mb-1">Take Care of Your Vision</h2>
+              <h2 className="text-xl mb-1">Rawat Penglihatan Anda</h2>
               <p className="text-sm text-muted-foreground">
-                Monitor, learn, and maintain healthy eyes with our comprehensive tools
+                Pantau, pelajari, dan jaga kesehatan mata dengan alat ukur kami
               </p>
             </div>
           </div>
@@ -94,7 +92,7 @@ export function Home() {
 
       {/* Main Features */}
       <div className="mb-6">
-        <h3 className="text-lg mb-3 px-1">Main Features</h3>
+        <h3 className="text-lg mb-3 px-1">Fitur Utama</h3>
         <div className="space-y-3">
           {features.map((feature) => {
             const Icon = feature.icon;
@@ -114,9 +112,9 @@ export function Home() {
                     <h4 className="mb-1">{feature.title}</h4>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
                   </div>
-                  {feature.requiresAuth && (
+                  {feature.requiresAuth && !isLoggedIn && (
                     <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
-                      Login
+                      Masuk
                     </span>
                   )}
                 </div>
@@ -128,7 +126,7 @@ export function Home() {
 
       {/* Resources */}
       <div className="mb-6">
-        <h3 className="text-lg mb-3 px-1">Learn & Discover</h3>
+        <h3 className="text-lg mb-3 px-1">Pelajari & Temukan</h3>
         <div className="grid grid-cols-2 gap-3">
           {resources.map((resource) => {
             const Icon = resource.icon;
@@ -156,8 +154,8 @@ export function Home() {
       {/* Info Banner */}
       <GlassCard className="p-4">
         <p className="text-xs text-center text-muted-foreground">
-          All features are free to use. Chat features require a simple account to save your
-          conversations.
+          Semua fitur gratis untuk digunakan. Fitur obrolan memerlukan akun sederhana untuk menyimpan
+          percakapan Anda.
         </p>
       </GlassCard>
     </div>

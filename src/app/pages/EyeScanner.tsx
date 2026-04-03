@@ -18,7 +18,7 @@ export function EyeScanner() {
     const file = e.target.files?.[0];
     if (file) {
       if (file.size > 5 * 1024 * 1024) {
-        alert("Image too large. Please choose an image under 5MB.");
+        alert("Gambar terlalu besar. Silakan pilih gambar di bawah 5MB.");
         return;
       }
       const reader = new FileReader();
@@ -46,11 +46,11 @@ export function EyeScanner() {
     } catch {
       setResult({
         status: "warning",
-        condition: "healthy",
+        condition: "healthy", // Fallback condition type
         confidence: 0,
         allScores: { healthy: 0, "dry-eye": 0, conjunctivitis: 0, cataract: 0, glaucoma: 0 },
-        findings: ["Analysis failed. Please try a clearer image."],
-        recommendations: ["Ensure good lighting when taking the photo", "Hold camera steady", "Position the eye clearly in frame"],
+        findings: ["Analisis gagal. Coba gunakan gambar yang lebih jelas."],
+        recommendations: ["Pastikan pencahayaan terang", "Pegang kamera dengan stabil", "Posisikan mata dengan jelas di dalam bingkai"],
       });
     }
 
@@ -87,8 +87,8 @@ export function EyeScanner() {
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-2xl">Eye Scanner</h1>
-          <p className="text-sm text-muted-foreground">Capture & analyze</p>
+          <h1 className="text-2xl">Pemindai Mata</h1>
+          <p className="text-sm text-muted-foreground">Ambil & Analisis</p>
         </div>
       </div>
 
@@ -96,8 +96,8 @@ export function EyeScanner() {
       <GlassCard className="p-4 mb-6 flex items-start gap-3">
         <Info className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
         <p className="text-sm text-muted-foreground">
-          This is a preliminary screening tool. Always consult a licensed eye care professional for
-          accurate diagnosis.
+          Ini adalah alat penapisan awal. Selalu konsultasikan dengan dokter mata profesional untuk
+          diagnosis yang akurat.
         </p>
       </GlassCard>
 
@@ -114,9 +114,9 @@ export function EyeScanner() {
                 <Camera className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h3 className="mb-1">Take a Photo</h3>
+                <h3 className="mb-1">Ambil Foto</h3>
                 <p className="text-sm text-muted-foreground">
-                  Open camera and capture your eye
+                  Buka kamera dan ambil gambar mata Anda
                 </p>
               </div>
             </div>
@@ -132,8 +132,8 @@ export function EyeScanner() {
                 <Upload className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h3 className="mb-1">Upload from Gallery</h3>
-                <p className="text-sm text-muted-foreground">Choose a photo from your device</p>
+                <h3 className="mb-1">Unggah dari Galeri</h3>
+                <p className="text-sm text-muted-foreground">Pilih foto dari perangkat Anda</p>
               </div>
             </div>
           </GlassCard>
@@ -143,13 +143,13 @@ export function EyeScanner() {
             <div className="flex items-start gap-3">
               <ImageIcon className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-sm mb-2">For best results:</h4>
+                <h4 className="text-sm mb-2">Untuk hasil terbaik:</h4>
                 <ul className="space-y-1">
                   {[
-                    "Use good, natural lighting",
-                    "Hold camera steady and close to your eye",
-                    "Keep eye open and look straight ahead",
-                    "Ensure the entire eye is visible in frame",
+                    "Kondisikan pencahayaan yang terang dan alami",
+                    "Pegang kamera dengan stabil di dekat mata",
+                    "Tetap buka mata dan lihat ke depan",
+                    "Pastikan seluruh bagian mata terlihat",
                   ].map((tip, i) => (
                     <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
                       <span className="text-primary mt-0.5">•</span>
@@ -185,7 +185,7 @@ export function EyeScanner() {
         <GlassCard className="p-4 space-y-4">
           <img
             src={selectedImage}
-            alt="Captured eye"
+            alt="Mata yang tertangkap"
             className="w-full rounded-2xl object-cover max-h-64"
           />
           {analyzing && (
@@ -195,7 +195,7 @@ export function EyeScanner() {
                 <div className="w-3 h-3 rounded-full bg-cyan-500 animate-bounce [animation-delay:0.2s]" />
                 <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce [animation-delay:0.4s]" />
               </div>
-              <p className="text-sm text-muted-foreground">Analyzing image...</p>
+              <p className="text-sm text-muted-foreground">Sedang menganalisis gambar...</p>
             </div>
           )}
           {!analyzing && (
@@ -204,10 +204,10 @@ export function EyeScanner() {
                 onClick={analyzeImage}
                 className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white"
               >
-                Analyze Image
+                Analisis Gambar
               </Button>
               <Button onClick={reset} variant="outline" className="backdrop-blur-xl">
-                Retake
+                Ulangi
               </Button>
             </div>
           )}
@@ -220,7 +220,7 @@ export function EyeScanner() {
           <GlassCard className="p-4">
             <img
               src={selectedImage!}
-              alt="Analyzed eye"
+              alt="Mata yang dianalisis"
               className="w-full rounded-2xl object-cover max-h-48 mb-4"
             />
           </GlassCard>
@@ -233,7 +233,7 @@ export function EyeScanner() {
                   {result.condition.replace("-", " ")}
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {result.confidence > 0 ? `Confidence: ${result.confidence}%` : "Preliminary screening result"}
+                  {result.confidence > 0 ? `Kepercayaan: ${result.confidence}%` : "Hasil penapisan awal"}
                 </p>
               </div>
               {result.status !== "healthy" && (
@@ -245,7 +245,7 @@ export function EyeScanner() {
 
             <div className="space-y-4">
               <div>
-                <h4 className="text-sm mb-2">Findings:</h4>
+                <h4 className="text-sm mb-2">Temuan:</h4>
                 <ul className="space-y-1">
                   {result.findings.map((finding, i) => (
                     <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
@@ -257,7 +257,7 @@ export function EyeScanner() {
               </div>
 
               <div>
-                <h4 className="text-sm mb-2">Recommendations:</h4>
+                <h4 className="text-sm mb-2">Rekomendasi:</h4>
                 <ul className="space-y-1">
                   {result.recommendations.map((rec, i) => (
                     <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
@@ -275,8 +275,8 @@ export function EyeScanner() {
               <div className="flex items-start gap-3">
                 <AlertCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-muted-foreground">
-                  This screening detected potential indicators. Please consult a licensed eye care
-                  professional for a proper diagnosis.
+                  Alat ini mendeteksi kemungkinan adanya indikator masalah. Silakan konsultasikan
+                  dengan dokter spesialis mata untuk diagnosis medis.
                 </p>
               </div>
             </GlassCard>
@@ -286,7 +286,7 @@ export function EyeScanner() {
             onClick={reset}
             className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white"
           >
-            Scan Another Image
+            Pindai Gambar Lain
           </Button>
         </div>
       )}

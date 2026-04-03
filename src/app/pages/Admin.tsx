@@ -65,7 +65,7 @@ function AdminLogin({ onLogin }: { onLogin: () => void }) {
       sessionStorage.setItem(ADMIN_SESSION_KEY, "true");
       onLogin();
     } else {
-      setError("Incorrect password. Please try again.");
+      setError("Kata sandi salah. Silakan coba lagi.");
     }
     setLoading(false);
   };
@@ -77,13 +77,13 @@ function AdminLogin({ onLogin }: { onLogin: () => void }) {
           <div className="inline-flex p-4 rounded-3xl bg-gradient-to-br from-slate-700 to-slate-900 mb-4 shadow-2xl">
             <Shield className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-2xl mb-1">Admin Panel</h1>
-          <p className="text-sm text-muted-foreground">EyeCare Companion Management</p>
+          <h1 className="text-2xl mb-1">Panel Admin</h1>
+          <p className="text-sm text-muted-foreground">Manajemen Aplikasi EyeCare</p>
         </div>
 
         <GlassCard className="p-6 space-y-4">
           <div>
-            <label className="text-sm font-medium mb-2 block">Admin Password</label>
+            <label className="text-sm font-medium mb-2 block">Kata Sandi Admin</label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
@@ -91,7 +91,7 @@ function AdminLogin({ onLogin }: { onLogin: () => void }) {
                 value={password}
                 onChange={(e) => { setPassword(e.target.value); setError(""); }}
                 onKeyDown={(e) => e.key === "Enter" && handleLogin()}
-                placeholder="Enter admin password"
+                placeholder="Masukkan kata sandi admin"
                 className="pl-10 pr-10"
               />
               <button
@@ -109,11 +109,11 @@ function AdminLogin({ onLogin }: { onLogin: () => void }) {
             disabled={!password || loading}
             className="w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-slate-800 hover:to-black text-white"
           >
-            {loading ? "Verifying..." : "Access Admin Panel"}
+            {loading ? "Memverifikasi..." : "Akses Panel Admin"}
           </Button>
 
           <p className="text-xs text-center text-muted-foreground">
-            Default password: <code className="bg-gray-100 px-1 rounded">eyecare_admin_2024</code>
+            Kata sandi bawaan: <code className="bg-gray-100 px-1 rounded">eyecare_admin_2024</code>
           </p>
         </GlassCard>
       </div>
@@ -134,25 +134,25 @@ function Dashboard({
   userCount: number;
 }) {
   const stats = [
-    { label: "Eye Conditions", value: glossaryCount, icon: Book, color: "from-blue-400 to-cyan-400", section: "glossary" as AdminSection },
-    { label: "Guide Steps", value: guideCount, icon: BookOpen, color: "from-green-400 to-emerald-400", section: "guide" as AdminSection },
-    { label: "Registered Users", value: userCount, icon: Users, color: "from-purple-400 to-pink-400", section: "users" as AdminSection },
+    { label: "Kondisi Mata", value: glossaryCount, icon: Book, color: "from-blue-400 to-cyan-400", section: "glossary" as AdminSection },
+    { label: "Langkah Panduan", value: guideCount, icon: BookOpen, color: "from-green-400 to-emerald-400", section: "guide" as AdminSection },
+    { label: "Pengguna", value: userCount, icon: Users, color: "from-purple-400 to-pink-400", section: "users" as AdminSection },
   ];
 
   const actions = [
-    { label: "Manage Glossary", icon: Book, section: "glossary" as AdminSection, desc: "Add / edit / delete eye conditions" },
-    { label: "Manage Health Guide", icon: BookOpen, section: "guide" as AdminSection, desc: "Edit guide steps and tips" },
-    { label: "Chatbot Memory", icon: Bot, section: "chatbot" as AdminSection, desc: "View knowledge base files" },
-    { label: "Model Training", icon: ImageIcon, section: "model" as AdminSection, desc: "Training image categories" },
-    { label: "User Management", icon: Users, section: "users" as AdminSection, desc: "View registered accounts" },
-    { label: "Settings", icon: Settings, section: "settings" as AdminSection, desc: "App configuration" },
+    { label: "Kelola Glosarium", icon: Book, section: "glossary" as AdminSection, desc: "Tambah / edit / hapus kondisi" },
+    { label: "Kelola Panduan", icon: BookOpen, section: "guide" as AdminSection, desc: "Edit langkah panduan kesehatan" },
+    { label: "Memori Chatbot", icon: Bot, section: "chatbot" as AdminSection, desc: "Lihat file basis pengetahuan" },
+    { label: "Pelatihan Model", icon: ImageIcon, section: "model" as AdminSection, desc: "Kategori gambar pelatihan AI" },
+    { label: "Manajemen Pengguna", icon: Users, section: "users" as AdminSection, desc: "Lihat akun terdaftar" },
+    { label: "Pengaturan", icon: Settings, section: "settings" as AdminSection, desc: "Konfigurasi aplikasi" },
   ];
 
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-lg mb-1">Dashboard</h2>
-        <p className="text-sm text-muted-foreground">Overview of your EyeCare Companion app</p>
+        <h2 className="text-lg mb-1">Dasbor</h2>
+        <p className="text-sm text-muted-foreground">Ringkasan aplikasi EyeCare Companion Anda</p>
       </div>
 
       <div className="grid grid-cols-3 gap-3">
@@ -175,7 +175,7 @@ function Dashboard({
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-sm text-muted-foreground px-1">Quick Actions</h3>
+        <h3 className="text-sm text-muted-foreground px-1">Aksi Cepat</h3>
         {actions.map((action) => {
           const Icon = action.icon;
           return (
@@ -205,7 +205,6 @@ function Dashboard({
 // ─── Glossary Manager ─────────────────────────────────────────────
 function GlossaryManager() {
   const [conditions, setConditions] = useState<GlossaryCondition[]>([]);
-  const [editingId, setEditingId] = useState<string | null>(null);
   const [showAddForm, setShowAddForm] = useState(false);
   const [newCondition, setNewCondition] = useState<Partial<GlossaryCondition>>({
     category: "common",
@@ -233,14 +232,14 @@ function GlossaryManager() {
   };
 
   const deleteCondition = (id: string) => {
-    if (confirm("Delete this condition?")) {
+    if (confirm("Hapus kondisi ini?")) {
       setConditions((prev) => prev.filter((c) => c.id !== id));
     }
   };
 
   const addCondition = () => {
     if (!newCondition.name || !newCondition.description) {
-      alert("Name and description are required.");
+      alert("Nama dan deskripsi wajib diisi.");
       return;
     }
     const condition: GlossaryCondition = {
@@ -257,7 +256,7 @@ function GlossaryManager() {
     setShowAddForm(false);
   };
 
-  if (loading) return <div className="text-center py-8 text-muted-foreground">Loading...</div>;
+  if (loading) return <div className="text-center py-8 text-muted-foreground">Memuat...</div>;
 
   const categoryColors: Record<string, string> = {
     common: "bg-blue-100 text-blue-700",
@@ -269,17 +268,17 @@ function GlossaryManager() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg">Glossary Manager</h2>
-          <p className="text-sm text-muted-foreground">{conditions.length} conditions</p>
+          <h2 className="text-lg">Kelola Glosarium</h2>
+          <p className="text-sm text-muted-foreground">{conditions.length} kondisi</p>
         </div>
         <div className="flex gap-2">
           <Button onClick={downloadJSON} variant="outline" size="sm" className="gap-1">
             <Download className="w-4 h-4" />
-            Export
+            Ekspor
           </Button>
           <Button onClick={() => setShowAddForm(true)} size="sm" className="gap-1 bg-gradient-to-r from-blue-500 to-cyan-500 text-white">
             <Plus className="w-4 h-4" />
-            Add
+            Tambah
           </Button>
         </div>
       </div>
@@ -288,16 +287,16 @@ function GlossaryManager() {
       <GlassCard className="p-3 flex items-start gap-2 bg-amber-50/50">
         <AlertTriangle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
         <p className="text-xs text-amber-700">
-          After editing, click <strong>Export</strong> and replace <code>public/data/glossary.json</code> in the project to make changes permanent.
+          Setelah mengedit, klik <strong>Ekspor</strong> dan timpa file <code>public/data/glossary.json</code> dalam proyek agar perubahan menjadi permanen.
         </p>
       </GlassCard>
 
       {/* Add Form */}
       {showAddForm && (
         <GlassCard className="p-5 space-y-3 border-2 border-blue-200">
-          <h3 className="text-sm font-medium">Add New Condition</h3>
+          <h3 className="text-sm font-medium">Tambah Kondisi Baru</h3>
           <Input
-            placeholder="Condition name"
+            placeholder="Nama kondisi"
             value={newCondition.name || ""}
             onChange={(e) => setNewCondition((p) => ({ ...p, name: e.target.value }))}
           />
@@ -306,12 +305,12 @@ function GlossaryManager() {
             onChange={(e) => setNewCondition((p) => ({ ...p, category: e.target.value as any }))}
             className="w-full px-3 py-2 rounded-xl border text-sm bg-white/70"
           >
-            <option value="common">Common</option>
-            <option value="serious">Serious</option>
-            <option value="age-related">Age-Related</option>
+            <option value="common">Umum (Common)</option>
+            <option value="serious">Serius (Serious)</option>
+            <option value="age-related">Terkait Usia (Age-Related)</option>
           </select>
           <textarea
-            placeholder="Description"
+            placeholder="Deskripsi"
             value={newCondition.description || ""}
             onChange={(e) => setNewCondition((p) => ({ ...p, description: e.target.value }))}
             rows={3}
@@ -319,10 +318,10 @@ function GlossaryManager() {
           />
           <div className="flex gap-2">
             <Button onClick={addCondition} size="sm" className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white">
-              <Save className="w-4 h-4 mr-1" /> Save
+              <Save className="w-4 h-4 mr-1" /> Simpan
             </Button>
             <Button onClick={() => setShowAddForm(false)} variant="outline" size="sm">
-              <X className="w-4 h-4 mr-1" /> Cancel
+              <X className="w-4 h-4 mr-1" /> Batal
             </Button>
           </div>
         </GlassCard>
@@ -337,13 +336,13 @@ function GlossaryManager() {
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-sm font-medium">{condition.name}</span>
                   <span className={`text-xs px-2 py-0.5 rounded-full ${categoryColors[condition.category]}`}>
-                    {condition.category}
+                    {condition.category === "common" ? "Umum" : condition.category === "serious" ? "Serius" : "Terkait Usia"}
                   </span>
                 </div>
                 <p className="text-xs text-muted-foreground line-clamp-2">{condition.description}</p>
                 <div className="flex gap-3 mt-1 text-xs text-muted-foreground">
-                  <span>{condition.symptoms.length} symptoms</span>
-                  <span>{condition.prevention.length} prevention tips</span>
+                  <span>{condition.symptoms.length} gejala</span>
+                  <span>{condition.prevention.length} tips pencegahan</span>
                 </div>
               </div>
               <button
@@ -382,25 +381,25 @@ function GuideManager() {
     URL.revokeObjectURL(url);
   };
 
-  if (loading) return <div className="text-center py-8 text-muted-foreground">Loading...</div>;
+  if (loading) return <div className="text-center py-8 text-muted-foreground">Memuat...</div>;
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg">Health Guide Manager</h2>
-          <p className="text-sm text-muted-foreground">{steps.length} steps</p>
+          <h2 className="text-lg">Kelola Panduan Kesehatan</h2>
+          <p className="text-sm text-muted-foreground">{steps.length} langkah</p>
         </div>
         <Button onClick={downloadJSON} variant="outline" size="sm" className="gap-1">
           <Download className="w-4 h-4" />
-          Export
+          Ekspor
         </Button>
       </div>
 
       <GlassCard className="p-3 flex items-start gap-2 bg-amber-50/50">
         <AlertTriangle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
         <p className="text-xs text-amber-700">
-          Export and replace <code>public/data/healthguide.json</code> to save changes permanently.
+          Ekspor dan timpa file <code>public/data/healthguide.json</code> untuk menyimpan perubahan secara permanen.
         </p>
       </GlassCard>
 
@@ -414,7 +413,7 @@ function GuideManager() {
               <div className="flex-1">
                 <div className="text-sm font-medium mb-0.5">{step.title}</div>
                 <div className="text-xs text-muted-foreground mb-1">{step.description}</div>
-                <div className="text-xs text-muted-foreground">{step.tips.length} tips • icon: {step.icon}</div>
+                <div className="text-xs text-muted-foreground">{step.tips.length} tips • ikon: {step.icon}</div>
               </div>
             </div>
           </GlassCard>
@@ -431,8 +430,8 @@ function ChatbotMemoryViewer() {
   const [loading, setLoading] = useState(false);
 
   const files = [
-    { name: "eye_conditions.txt", label: "Eye Conditions" },
-    { name: "general_tips.txt", label: "General Tips" },
+    { name: "eye_conditions.txt", label: "Kondisi Mata" },
+    { name: "general_tips.txt", label: "Tips Umum" },
     { name: "faq.txt", label: "FAQ" },
   ];
 
@@ -441,7 +440,7 @@ function ChatbotMemoryViewer() {
     fetch(`/chatbot-memory/${activeFile}`)
       .then((r) => r.text())
       .then((text) => { setContent(text); setLoading(false); })
-      .catch(() => { setContent("Failed to load file."); setLoading(false); });
+      .catch(() => { setContent("Gagal memuat file."); setLoading(false); });
   }, [activeFile]);
 
   const downloadFile = () => {
@@ -458,12 +457,12 @@ function ChatbotMemoryViewer() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg">Chatbot Memory</h2>
-          <p className="text-sm text-muted-foreground">Knowledge base files</p>
+          <h2 className="text-lg">Memori Chatbot</h2>
+          <p className="text-sm text-muted-foreground">File basis pengetahuan</p>
         </div>
         <Button onClick={downloadFile} variant="outline" size="sm" className="gap-1">
           <Download className="w-4 h-4" />
-          Download
+          Unduh
         </Button>
       </div>
 
@@ -485,7 +484,7 @@ function ChatbotMemoryViewer() {
 
       <GlassCard className="p-4">
         {loading ? (
-          <div className="text-center py-8 text-muted-foreground text-sm">Loading...</div>
+          <div className="text-center py-8 text-muted-foreground text-sm">Memuat...</div>
         ) : (
           <pre className="text-xs text-muted-foreground whitespace-pre-wrap leading-relaxed max-h-96 overflow-y-auto">
             {content}
@@ -496,7 +495,7 @@ function ChatbotMemoryViewer() {
       <GlassCard className="p-3 flex items-start gap-2 bg-blue-50/50">
         <Database className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
         <p className="text-xs text-blue-700">
-          To update the knowledge base, edit the files in <code>public/chatbot-memory/</code> and redeploy. The AI chatbot loads these files as context on startup.
+          Untuk memperbarui basis pengetahuan, edit file di <code>public/chatbot-memory/</code> lalu deploy ulang. Chatbot AI memuat file ini sebagai konteks saat diinisialisasi.
         </p>
       </GlassCard>
     </div>
@@ -506,28 +505,28 @@ function ChatbotMemoryViewer() {
 // ─── Model Training Section ───────────────────────────────────────
 function ModelSection() {
   const categories = [
-    { name: "healthy", color: "from-green-400 to-emerald-400", desc: "Normal, healthy eye images" },
-    { name: "dry-eye", color: "from-sky-400 to-blue-400", desc: "Dry eye syndrome indicators" },
-    { name: "conjunctivitis", color: "from-red-400 to-orange-400", desc: "Pink eye / conjunctivitis" },
-    { name: "cataract", color: "from-yellow-400 to-amber-400", desc: "Lens clouding / cataracts" },
-    { name: "glaucoma", color: "from-purple-400 to-violet-400", desc: "Optic nerve / glaucoma signs" },
+    { name: "healthy", color: "from-green-400 to-emerald-400", desc: "Mata normal, sehat" },
+    { name: "dry-eye", color: "from-sky-400 to-blue-400", desc: "Indikator sindrom mata kering" },
+    { name: "conjunctivitis", color: "from-red-400 to-orange-400", desc: "Mata merah / konjungtivitis" },
+    { name: "cataract", color: "from-yellow-400 to-amber-400", desc: "Kekeruhan lensa / katarak" },
+    { name: "glaucoma", color: "from-purple-400 to-violet-400", desc: "Tanda saraf optik / glaukoma" },
   ];
 
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="text-lg">Model Training</h2>
-        <p className="text-sm text-muted-foreground">Training image categories</p>
+        <h2 className="text-lg">Pelatihan Model</h2>
+        <p className="text-sm text-muted-foreground">Kategori gambar pelatihan</p>
       </div>
 
       <GlassCard className="p-4 bg-gradient-to-br from-slate-50 to-blue-50/30">
-        <h3 className="text-sm font-medium mb-2">Training Workflow</h3>
+        <h3 className="text-sm font-medium mb-2">Alur Pelatihan (Workflow)</h3>
         <ol className="space-y-2">
           {[
-            "Place images in the category folders below",
-            "Run: python scripts/train_model.py",
-            "Copy generated model.json + weights to public/model/",
-            "Redeploy the app — scanner will use the model automatically",
+            "Posisikan gambar di folder kategori di bawah",
+            "Jalankan skrip: python scripts/train_model.py",
+            "Salin file model.json + bobot yang dihasilkan ke folder public/model/",
+            "Deploy ulang aplikasi — pemindai akan memakai model tersebut otomatis",
           ].map((step, i) => (
             <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
               <span className="w-5 h-5 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 text-white flex items-center justify-center flex-shrink-0 text-[10px] font-bold">
@@ -559,7 +558,7 @@ function ModelSection() {
       </div>
 
       <GlassCard className="p-4">
-        <h3 className="text-sm font-medium mb-2">Requirements</h3>
+        <h3 className="text-sm font-medium mb-2">Syarat Instalasi</h3>
         <pre className="text-xs text-muted-foreground bg-slate-900 text-green-400 p-3 rounded-xl overflow-x-auto">
           {`pip install tensorflow pillow numpy tensorflowjs\npython scripts/train_model.py`}
         </pre>
@@ -588,24 +587,24 @@ function UserManagement() {
   }, []);
 
   const clearChatHistory = () => {
-    if (confirm("Clear all chat history? This cannot be undone.")) {
+    if (confirm("Hapus seluruh riwayat percakapan? Ini tak dapat dikembalikan.")) {
       localStorage.removeItem("chatbot_messages");
-      alert("Chat history cleared.");
+      alert("Riwayat obrolan telah dihapus.");
     }
   };
 
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="text-lg">User Management</h2>
-        <p className="text-sm text-muted-foreground">Registered accounts</p>
+        <h2 className="text-lg">Manajemen Pengguna</h2>
+        <p className="text-sm text-muted-foreground">Akun terdaftar</p>
       </div>
 
       {users.length === 0 ? (
         <GlassCard className="p-8 text-center">
           <Users className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-          <p className="text-sm text-muted-foreground">No registered users found in this browser session.</p>
-          <p className="text-xs text-muted-foreground mt-1">Users are stored in the browser's localStorage.</p>
+          <p className="text-sm text-muted-foreground">Belum ada user yang teregistrasi di sesi browser saat ini.</p>
+          <p className="text-xs text-muted-foreground mt-1">Pengguna disimpan dalam localStorage peramban.</p>
         </GlassCard>
       ) : (
         users.map((user, i) => (
@@ -615,8 +614,8 @@ function UserManagement() {
                 {(user.name?.[0] || user.email?.[0] || "U").toUpperCase()}
               </div>
               <div className="flex-1">
-                <div className="text-sm font-medium">{user.name || "Unknown"}</div>
-                <div className="text-xs text-muted-foreground">{user.email || "No email"}</div>
+                <div className="text-sm font-medium">{user.name || "Anonim"}</div>
+                <div className="text-xs text-muted-foreground">{user.email || "Tanpa email"}</div>
               </div>
               <CheckCircle className="w-4 h-4 text-green-500" />
             </div>
@@ -625,7 +624,7 @@ function UserManagement() {
       )}
 
       <GlassCard className="p-4 space-y-3">
-        <h3 className="text-sm font-medium">Data Management</h3>
+        <h3 className="text-sm font-medium">Pengelolaan Data</h3>
         <button
           onClick={clearChatHistory}
           className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-red-50 transition-colors text-left"
@@ -634,8 +633,8 @@ function UserManagement() {
             <Trash2 className="w-4 h-4 text-red-500" />
           </div>
           <div>
-            <div className="text-sm text-red-600">Clear Chat History</div>
-            <div className="text-xs text-muted-foreground">Remove all saved chatbot messages</div>
+            <div className="text-sm text-red-600">Hapus Riwayat Chat</div>
+            <div className="text-xs text-muted-foreground">Menghapus semua obrolan dengan chatbot AI</div>
           </div>
         </button>
       </GlassCard>
@@ -650,26 +649,26 @@ function SettingsSection() {
 
   const items = [
     {
-      label: "Gemini API",
-      desc: hasApiKey ? "API key configured ✓" : "Not configured — set VITE_GEMINI_API_KEY in .env",
+      label: "API Gemini",
+      desc: hasApiKey ? "Kunci API telah terkonfigurasi ✓" : "Belum dikonfigurasi — atur VITE_GEMINI_API_KEY di .env",
       status: hasApiKey,
       icon: Bot,
     },
     {
       label: "Figma Make Sync",
-      desc: "Connected via GitHub repo (Yada912/Eyehealthawarenessapp)",
+      desc: "Terhubung lewat repositori GitHub (Yada912/Eyehealthawarenessapp)",
       status: true,
       icon: Edit3,
     },
     {
       label: "AI Model",
-      desc: modelPresent ? "Model loaded (public/model/model.json)" : "No trained model — using mock analysis",
+      desc: modelPresent ? "Model termuat (public/model/model.json)" : "Belum ada model terlatih — menggunakan analisis pura-pura (mock)",
       status: modelPresent,
       icon: ImageIcon,
     },
     {
-      label: "Vercel Deployment",
-      desc: "Auto-deploy on push to main branch",
+      label: "Deployment Vercel",
+      desc: "Deployment otomatis ketika push ke main",
       status: true,
       icon: Shield,
     },
@@ -678,8 +677,8 @@ function SettingsSection() {
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="text-lg">App Settings</h2>
-        <p className="text-sm text-muted-foreground">Configuration status</p>
+        <h2 className="text-lg">Pengaturan Aplikasi</h2>
+        <p className="text-sm text-muted-foreground">Status konfigurasi</p>
       </div>
 
       <div className="space-y-2">
@@ -707,12 +706,12 @@ function SettingsSection() {
       </div>
 
       <GlassCard className="p-4 space-y-2">
-        <h3 className="text-sm font-medium">Environment Variables</h3>
+        <h3 className="text-sm font-medium">Variabel Lingkungan (Environment)</h3>
         <pre className="text-xs text-muted-foreground bg-slate-900 text-green-400 p-3 rounded-xl overflow-x-auto">
-{`# .env file (project root)
-VITE_GEMINI_API_KEY=your_gemini_api_key_here
+{`# file .env (pada root folder)
+VITE_GEMINI_API_KEY=kunci_api_gemini_anda
 
-# Get free key at:
+# Dapatkan kunci gratis di:
 # https://aistudio.google.com/app/apikey`}
         </pre>
       </GlassCard>
@@ -753,13 +752,13 @@ export function Admin() {
   }
 
   const sectionTitles: Record<AdminSection, string> = {
-    dashboard: "Dashboard",
-    glossary: "Glossary",
-    guide: "Health Guide",
-    chatbot: "Chatbot Memory",
-    model: "Model Training",
-    users: "Users",
-    settings: "Settings",
+    dashboard: "Dasbor",
+    glossary: "Glosarium",
+    guide: "Panduan Kesehatan",
+    chatbot: "Memori Chatbot",
+    model: "Pelatihan Model",
+    users: "Pengguna",
+    settings: "Pengaturan",
   };
 
   return (
@@ -772,7 +771,7 @@ export function Admin() {
         <div className="flex items-center gap-3">
           {currentSection !== "dashboard" && (
             <button
-              onClick={() => setCurrentSection("dashboard")}
+               onClick={() => setCurrentSection("dashboard")}
               className="p-2 rounded-xl hover:bg-white/50 active:scale-95 transition-all"
             >
               <Shield className="w-5 h-5 text-slate-600" />
@@ -785,13 +784,13 @@ export function Admin() {
           )}
           <div className="flex-1">
             <h1 className="text-base font-semibold">
-              Admin Panel {currentSection !== "dashboard" && `/ ${sectionTitles[currentSection]}`}
+              Panel Admin {currentSection !== "dashboard" && `/ ${sectionTitles[currentSection]}`}
             </h1>
           </div>
           <button
-            onClick={handleLogout}
+             onClick={handleLogout}
             className="p-2 rounded-xl hover:bg-red-50 text-muted-foreground hover:text-red-500 transition-colors"
-            title="Logout"
+            title="Keluar / Logout"
           >
             <LogOut className="w-5 h-5" />
           </button>
@@ -801,7 +800,7 @@ export function Admin() {
       <div className="px-5 py-6">
         {currentSection === "dashboard" && (
           <Dashboard
-            onNavigate={setCurrentSection}
+             onNavigate={setCurrentSection}
             glossaryCount={glossaryCount}
             guideCount={guideCount}
             userCount={userCount}

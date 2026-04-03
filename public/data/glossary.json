@@ -1,215 +1,215 @@
 [
   {
     "id": "dry-eye",
-    "name": "Dry Eye Syndrome",
+    "name": "Mata Kering",
     "category": "common",
-    "description": "A condition where eyes don't produce enough tears or tears evaporate too quickly, causing discomfort and potential vision problems.",
+    "description": "Kondisi di mana mata tidak memproduksi cukup air mata atau air mata terlalu cepat menguap, menyebabkan ketidaknyamanan dan kemungkinan masalah penglihatan.",
     "symptoms": [
-      "Stinging or burning sensation",
-      "Scratchy or gritty feeling",
-      "Excessive tearing (reflex response)",
-      "Red or irritated eyes",
-      "Blurred vision",
-      "Eye fatigue"
+      "Sensasi menyengat atau terbakar",
+      "Terasa ada pasir atau mengganjal",
+      "Banyak mengeluarkan air mata (respons refleks)",
+      "Mata merah atau teriritasi",
+      "Penglihatan kabur",
+      "Mata mudah lelah"
     ],
     "prevention": [
-      "Blink frequently, especially during screen time",
-      "Use a humidifier in dry environments",
-      "Take regular breaks from screens",
-      "Stay well-hydrated",
-      "Wear wraparound sunglasses outdoors"
+      "Sering berkedip, terutama saat menatap layar",
+      "Gunakan pelembap udara di ruangan yang kering",
+      "Istirahatkan mata sejenak secara teratur",
+      "Tetap terhidrasi (minum air cukup)",
+      "Gunakan kacamata pelindung di luar ruangan"
     ],
     "detection": [
-      "Self-reported symptoms",
-      "Tear production test (Schirmer test)",
-      "Tear quality assessment",
-      "Eye surface examination"
+      "Gejala yang dilaporkan mandiri",
+      "Tes produksi air mata (Tes Schirmer)",
+      "Penilaian kualitas air mata",
+      "Pemeriksaan permukaan mata"
     ]
   },
   {
     "id": "cataracts",
-    "name": "Cataracts",
+    "name": "Katarak",
     "category": "age-related",
-    "description": "Clouding of the eye's natural lens, most commonly occurring with age. Vision becomes progressively blurred, like looking through a foggy window.",
+    "description": "Kekeruhan pada lensa alami mata, paling sering terjadi seiring bertambahnya usia. Penglihatan secara bertahap menjadi kabur, seperti melihat melalui jendela yang berkabut.",
     "symptoms": [
-      "Cloudy or blurry vision",
-      "Colors appear faded",
-      "Poor night vision",
-      "Halos around lights",
-      "Frequent prescription changes",
-      "Double vision in one eye"
+      "Penglihatan keruh atau kabur",
+      "Warna terlihat memudar",
+      "Penglihatan buruk di malam hari",
+      "Melihat lingkaran bayangan (halo) di sekitar lampu",
+      "Sering mengganti resep kacamata",
+      "Penglihatan ganda pada satu mata"
     ],
     "prevention": [
-      "Wear UV-protective sunglasses",
-      "Quit smoking",
-      "Manage diabetes effectively",
-      "Limit alcohol consumption",
-      "Eat antioxidant-rich foods"
+      "Pakai kacamata hitam anti-UV",
+      "Berhenti merokok",
+      "Kelola diabetes secara efektif",
+      "Batasi konsumsi alkohol",
+      "Makan sayur dan buah yang kaya antioksidan"
     ],
     "detection": [
-      "Comprehensive eye exam",
-      "Visual acuity test",
-      "Slit-lamp examination",
-      "Retinal exam"
+      "Pemeriksaan mata komprehensif",
+      "Tes ketajaman visual",
+      "Pemeriksaan menggunakan Slit-lamp",
+      "Pemeriksaan retina"
     ]
   },
   {
     "id": "glaucoma",
-    "name": "Glaucoma",
+    "name": "Glaukoma",
     "category": "serious",
-    "description": "A group of eye conditions that damage the optic nerve, often due to increased eye pressure. Can lead to permanent vision loss if untreated.",
+    "description": "Kelompok kondisi mata yang merusak saraf optik, seringkali akibat tingginya tekanan mata. Bisa menyebabkan hilangnya penglihatan secara permanen jika tidak diobati.",
     "symptoms": [
-      "Gradual loss of peripheral vision",
-      "Tunnel vision in advanced stages",
-      "Eye pain (in acute cases)",
-      "Blurred vision",
-      "Halos around lights",
-      "Often no early symptoms"
+      "Hilangnya penglihatan tepi (perifer) secara bertahap",
+      "Penglihatan seperti lorong pada tahap lanjut",
+      "Nyeri mata yang parah (pada kasus akut)",
+      "Penglihatan menjadi kabur",
+      "Lingkaran halo di sekitar cahaya",
+      "Sering tidak ada gejala pada tahap awal"
     ],
     "prevention": [
-      "Regular comprehensive eye exams (crucial!)",
-      "Exercise regularly",
-      "Protect eyes from injury",
-      "Manage blood pressure",
-      "Avoid smoking"
+      "Pemeriksaan mata komprehensif rutin (sangat penting!)",
+      "Olahraga secara teratur",
+      "Lindungi mata dari cedera",
+      "Kelola tekanan darah",
+      "Hindari merokok"
     ],
     "detection": [
-      "Tonometry (eye pressure measurement)",
-      "Optic nerve examination",
-      "Visual field test",
-      "Corneal thickness measurement",
-      "Imaging tests (OCT)"
+      "Tonometri (pengukuran tekanan bola mata)",
+      "Pemeriksaan saraf optik",
+      "Tes lapang pandang (visual field)",
+      "Pengukuran ketebalan kornea",
+      "Tes pencitraan (OCT)"
     ]
   },
   {
     "id": "amd",
-    "name": "Age-Related Macular Degeneration",
+    "name": "Degenerasi Makula Terkait Usia (AMD)",
     "category": "age-related",
-    "description": "Deterioration of the macula, the central part of the retina, leading to loss of central vision. Most common cause of vision loss in people over 50.",
+    "description": "Kemunduran pada makula, bagian tengah retina, yang menyebabkan hilangnya penglihatan sentral. Penyebab paling umum hilangnya penglihatan pada usia di atas 50 tahun.",
     "symptoms": [
-      "Blurred or reduced central vision",
-      "Straight lines appear wavy",
-      "Dark or empty areas in center of vision",
-      "Difficulty recognizing faces",
-      "Colors appear less vibrant"
+      "Penglihatan sentral kabur atau berkurang",
+      "Garis lurus tampak bergelombang",
+      "Muncul area gelap atau kosong di tengah pandangan",
+      "Kesulitan mengenali wajah",
+      "Warna tampak kurang cerah"
     ],
     "prevention": [
-      "Don't smoke",
-      "Eat leafy greens and fish",
-      "Maintain healthy weight",
-      "Exercise regularly",
-      "Protect eyes from UV light",
-      "Control blood pressure and cholesterol"
+      "Jangan merokok",
+      "Makan sayuran berdaun hijau dan ikan",
+      "Jaga berat badan yang ideal",
+      "Olahraga secara teratur",
+      "Lindungi mata dari paparan sinar UV",
+      "Kendalikan tekanan darah dan kolesterol"
     ],
     "detection": [
-      "Dilated eye exam",
-      "Amsler grid test",
-      "Optical coherence tomography (OCT)",
-      "Fluorescein angiography"
+      "Pemeriksaan dilatasi mata (memperlebar pupil)",
+      "Tes Amsler Grid",
+      "Tomografi koherensi optik (OCT)",
+      "Angiografi fluoresen"
     ]
   },
   {
     "id": "conjunctivitis",
-    "name": "Conjunctivitis (Pink Eye)",
+    "name": "Konjungtivitis (Mata Merah)",
     "category": "common",
-    "description": "Inflammation of the conjunctiva (the membrane covering the white part of the eye), often caused by infection, allergies, or irritants.",
+    "description": "Peradangan pada konjungtiva (selaput transparan pada bagian putih mata), seringkali karena infeksi, alergi, atau iritasi.",
     "symptoms": [
-      "Pink or red color in the white of the eye",
-      "Increased tearing",
-      "Thick discharge that crusts over",
-      "Itching or burning sensation",
-      "Gritty feeling in the eye",
-      "Swollen eyelids"
+      "Warna merah muda atau kemerahan pada area putih mata",
+      "Air mata terus menerus keluar",
+      "Kotoran mata yang berkerak / lengket",
+      "Rasa gatal atau terbakar",
+      "Terasa seperti ada pasir di mata",
+      "Kelopak mata bengkak"
     ],
     "prevention": [
-      "Wash hands frequently",
-      "Avoid touching or rubbing eyes",
-      "Don't share towels or eye makeup",
-      "Clean contact lenses properly",
-      "Avoid known allergens"
+      "Sering mencuci tangan",
+      "Jangan menyentuh / mengucek mata",
+      "Jangan berbagi handuk wajah atau riasan mata",
+      "Bersihkan lensa kontak Anda dengan benar",
+      "Hindari hal yang menyebabkan alergi"
     ],
     "detection": [
-      "Physical examination",
-      "Medical history review",
-      "Eye discharge sample (if needed)",
-      "Allergy testing (for allergic conjunctivitis)"
+      "Melalui pemeriksaan fisik",
+      "Memeriksa riwayat medis",
+      "Mengambil spesimen kotoran mata (jika diperlukan)",
+      "Tes alergi (untuk konjungtivitis alergi)"
     ]
   },
   {
     "id": "diabetic-retinopathy",
-    "name": "Diabetic Retinopathy",
+    "name": "Retinopati Diabetik",
     "category": "serious",
-    "description": "Damage to blood vessels in the retina caused by diabetes. Leading cause of blindness in working-age adults.",
+    "description": "Kerusakan pembuluh darah di retina yang disebabkan oleh penyakit diabetes mellitus. Ini adalah penyebab utama kebutaan pada orang dewasa.",
     "symptoms": [
-      "Spots or floaters in vision",
-      "Blurred vision",
-      "Fluctuating vision",
-      "Dark or empty areas in vision",
-      "Vision loss",
-      "Often no early symptoms"
+      "Banyak terlihat bintik hitam atau bayangan beterbangan (floaters)",
+      "Penglihatan yang tiba-tiba kabur",
+      "Penglihatan tidak stabil / sering berubah-ubah",
+      "Area gelap atau kosong dalam penglihatan",
+      "Hilangnya penglihatan",
+      "Sering tidak menunjukkan tanda di awal"
     ],
     "prevention": [
-      "Control blood sugar levels",
-      "Manage blood pressure and cholesterol",
-      "Regular eye exams (at least annually)",
-      "Maintain healthy weight",
-      "Exercise regularly",
-      "Don't smoke"
+      "Kendalikan gula darah dengan disiplin",
+      "Jaga tekanan darah dan kolesterol tetap stabil",
+      "Periksa mata rutin (setidaknya setahun sekali)",
+      "Jaga berat badan tetap sehat",
+      "Tetap rutin olahraga",
+      "Jangan pernah merokok"
     ],
     "detection": [
-      "Dilated eye exam",
-      "Fluorescein angiography",
-      "Optical coherence tomography (OCT)",
-      "Blood sugar monitoring"
+      "Pemeriksaan dilatasi mata komprehensif",
+      "Angiografi fluoresen",
+      "Tomografi koherensi optik (OCT)",
+      "Riwayat kontrol gula darah"
     ]
   },
   {
     "id": "astigmatism",
-    "name": "Astigmatism",
+    "name": "Mata Silinder (Astigmatisme)",
     "category": "common",
-    "description": "An imperfection in the curvature of the cornea or lens, causing blurred or distorted vision at all distances.",
+    "description": "Ketidaksempurnaan pada kelengkungan bentuk kornea atau lensa, menyebabkan penglihatan kabur atau menyimpang pada segala jarak.",
     "symptoms": [
-      "Blurred or distorted vision",
-      "Eye strain",
-      "Headaches",
-      "Difficulty seeing at night",
-      "Squinting to see clearly"
+      "Penglihatan yang terlihat kabur atau melenceng",
+      "Mata yang gampang sangat kelelahan",
+      "Sering merasakan sakit kepala",
+      "Sangat menantang melihat di malam hari",
+      "Mata perlu menyipit agar dapat melihat dengan jelas"
     ],
     "prevention": [
-      "Cannot be prevented (usually hereditary)",
-      "Early detection through eye exams",
-      "Proper correction with glasses/contacts"
+      "Tidak dapat dicegah secara langsung (biasanya ini genetik)",
+      "Deteksi dini sangat membantu melalui pemeriksaan mata",
+      "Sediakan koreksi yang memadai lewat kacamata / lensa kontak"
     ],
     "detection": [
-      "Vision test",
-      "Keratometry (cornea curvature measurement)",
-      "Corneal topography",
-      "Refraction assessment"
+      "Pengujian ketajaman pandangan",
+      "Keratometri (pengukuran kelengkungan kornea)",
+      "Topografi untuk kornea",
+      "Menghitung tajam refraksi"
     ]
   },
   {
     "id": "retinal-detachment",
-    "name": "Retinal Detachment",
+    "name": "Ablasi Retina",
     "category": "serious",
-    "description": "A medical emergency where the retina pulls away from the back of the eye. Requires immediate treatment to prevent permanent vision loss.",
+    "description": "Kondisi darurat medis di mana selaput retina robek dan terlepas dari bagian belakang mata. Membutuhkan tindakan secepatnya untuk mencegah kebutaan permanen.",
     "symptoms": [
-      "Sudden appearance of floaters",
-      "Flashes of light",
-      "Shadow or curtain over vision",
-      "Sudden blurred vision",
-      "No pain initially"
+      "Munculnya floaters dalam jumlah yang mendadak banyak",
+      "Ada kilatan percikan cahaya tiba-tiba (flashes)",
+      "Munculnya sebuah tirai/bayangan yang menutupi area lapang pandang",
+      "Penglihatan menurun kabur secara langsung & ekstrem",
+      "Tidak ada rasa sakit secara sengaja di tahapan awal"
     ],
     "prevention": [
-      "Protect eyes from injury",
-      "Regular eye exams (especially if high risk)",
-      "Manage diabetes and blood pressure",
-      "Seek immediate care for symptoms"
+      "Lindungi bagian wilayah wajah / mata dari paparan benda yang tajam",
+      "Apresiasi akan check-up setahun sekali",
+      "Jaga profil glukosa dari diabetes",
+      "Cari segera layanan kegawatdaruratan saat ada keluhan baru"
     ],
     "detection": [
-      "Dilated eye examination",
-      "Ultrasound of the eye",
-      "Ophthalmoscopy",
-      "This is a MEDICAL EMERGENCY"
+      "Pemeriksaan pupil menggunakan cairan Midriatika",
+      "Pemindaian ultrasound area mata",
+      "Test Ophtalmoskopi",
+      "Ingat: INI ADALAH TINGKAT KEGAWATDARURATAN"
     ]
   }
 ]
