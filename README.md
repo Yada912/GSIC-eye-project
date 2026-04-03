@@ -1,6 +1,3 @@
-Now let me get the current README and package.json contents:Berdasarkan analisis lengkap repositori, berikut adalah **panduan README yang komprehensif dan profesional** untuk proyek ini:
-
-```markdown
 # 👁️ GSIC Eye Health Awareness App
 
 **Aplikasi web untuk screening dan awareness kesehatan mata menggunakan AI**
