@@ -1,0 +1,63 @@
+FREQUENTLY ASKED QUESTIONS (FAQ) — EYE HEALTH
+===============================================
+This file contains common patient questions and expert answers for the AI chatbot.
+
+Q: How often should I get my eyes checked?
+A: Adults should have a comprehensive eye exam every 1-2 years if healthy. If you wear contact lenses or have risk factors (diabetes, family history of eye disease, high blood pressure), get annual exams. Children should be examined before age 1, between 3-5 years, and annually once in school. People over 60 should have annual exams.
+
+Q: Can staring at screens damage my eyes permanently?
+A: Digital screens cause temporary discomfort (Computer Vision Syndrome/Digital Eye Strain) but do NOT cause permanent damage. Symptoms include dry eyes, eye strain, headaches, and blurred vision. These resolve with rest and proper habits like the 20-20-20 rule. However, blue light from screens may affect sleep if used close to bedtime.
+
+Q: Do carrots really improve eyesight?
+A: Carrots contain beta-carotene, which the body converts to vitamin A — essential for maintaining good vision, especially night vision, and keeping the cornea healthy. However, carrots won't improve vision beyond your natural baseline or fix refractive errors. A deficiency in vitamin A (rare in developed countries) can cause night blindness and dry eyes.
+
+Q: Can wearing glasses make my eyesight worse?
+A: No. Glasses correct your vision — they don't change the underlying eye structure. Not wearing prescribed glasses can cause eye strain and headaches. Children may develop amblyopia (lazy eye) if they don't wear prescribed glasses. Your prescription may change over time, but this is due to natural eye development, not glasses use.
+
+Q: What's the difference between an optometrist and an ophthalmologist?
+A: An optometrist (OD) provides primary vision care: eye exams, prescribing glasses and contacts, detecting common conditions. An ophthalmologist (MD) is a medical doctor specializing in eye and vision care, performing surgery (cataract, LASIK, retinal) and treating complex eye diseases. An optician fills prescriptions for glasses/contacts but doesn't perform exams.
+
+Q: Can I use eye drops every day?
+A: Preservative-free artificial tears can be used as often as needed. Regular preserved lubricating drops are generally safe up to 4 times daily. Medicated drops (antihistamine, decongestant "red eye" drops) should not be used long-term without medical advice — decongestant drops can cause rebound redness. Never use contact lens solution as eye drops.
+
+Q: Is it safe to sleep in contact lenses?
+A: Generally not recommended unless you wear specifically FDA-approved extended-wear lenses. Sleeping in contacts significantly increases risk of serious eye infections, including potentially blinding corneal ulcers. Remove lenses every day and follow your prescribed wear schedule.
+
+Q: What causes eye floaters and are they dangerous?
+A: Floaters are shadows of small clumps of gel/cells inside the vitreous (jelly inside the eye). Most are benign and caused by aging. Occasional floaters in one eye are usually normal. See a doctor IMMEDIATELY if you experience: sudden large increase in floaters, floaters with flashes of light, floaters with a shadow/curtain over vision, or floaters after eye trauma — these can signal retinal detachment.
+
+Q: Can children get glaucoma?
+A: Yes, though rare. Childhood glaucoma (congenital or juvenile) can occur. Signs in infants include large, cloudy eyes, sensitivity to light, excessive tearing. Treatment is usually surgery. Regular eye checkups are important for detecting eye problems in children early.
+
+Q: Is LASIK surgery safe? Who is a good candidate?
+A: LASIK is FDA-approved and has a strong safety record. Good candidates: 18+ years old, stable prescription for 1+ year, adequate corneal thickness, no dry eye, no autoimmune disease, not pregnant. LASIK may not be suitable for everyone — consult an ophthalmologist. Most patients achieve 20/20 or better vision; some may still need glasses for some tasks.
+
+Q: How do I know if I need glasses?
+A: Signs you might need glasses: squinting to see clearly, headaches (especially after reading/screen use), difficulty reading or driving at night, blurry vision at any distance, eye strain or fatigue, holding reading material unusually close or far. See an optometrist or ophthalmologist for a comprehensive eye exam.
+
+Q: What is the difference between UV-A and UV-B? Why do both matter for eyes?
+A: UV-B rays are shorter wavelength and primarily affect the front of the eye (corneal/lens damage, photokeratitis/welder's eye). UV-A rays penetrate deeper into the eye and are linked to retinal damage, cataracts, and macular degeneration. Quality sunglasses should block 99-100% of both UV-A and UV-B rays.
+
+Q: Can diabetes affect my eyes even if my vision seems fine?
+A: Yes. Diabetic retinopathy often develops without symptoms in its early stages. By the time you notice vision changes, significant damage may have occurred. ALL people with diabetes (type 1 or type 2) should have annual dilated eye exams, regardless of how well their diabetes is controlled or how good their vision seems.
+
+Q: What questions should I ask at my eye appointment?
+A: Key questions: What is my current prescription (and can I have a copy)? Is my prescription stable? Are there any signs of eye disease? Am I at risk for any eye conditions? How often should I come back? Is my child's vision developing normally? What symptoms should prompt me to come in sooner?
+
+Q: Are there eye exercises to improve vision?
+A: No evidence that eye exercises (like palming, focusing, or eye rotation) correct refractive errors (nearsightedness, farsightedness, astigmatism). However, certain exercises can help with convergence insufficiency (difficulty focusing eyes together) under professional guidance. Vision therapy prescribed by an optometrist can help some functional vision problems.
+
+Q: How can I tell the difference between a headache from eye strain and a migraine?
+A: Eye strain headaches: feel like pressure or aching around eyes/forehead; occur during or after extended visual tasks; relieved by resting eyes; no nausea/light sensitivity typically. Migraines: more intense, often one-sided; may have aura (visual disturbances); often with nausea, light/sound sensitivity; can last hours to days. If uncertain, see a healthcare provider.
+
+Q: What foods should I avoid for eye health?
+A: High-sugar foods (raise diabetes risk affecting retinal vessels), processed foods high in omega-6 fats, excessive alcohol (cataract and AMD risk), high-sodium foods (raise blood pressure affecting eye vessels), trans fats (cardiovascular risk affects eye health), excessive saturated fats. Focus more on what TO eat than what to avoid.
+
+Q: Can allergies cause permanent eye damage?
+A: Most eye allergies (allergic conjunctivitis) do not cause permanent damage, just discomfort. However, severe allergic eye disease (atopic keratoconjunctivitis, vernal keratoconjunctivitis) can cause corneal damage if untreated. Avoid rubbing allergic eyes, as it releases more histamine and can cause corneal damage over time. See an allergist or ophthalmologist for severe or chronic eye allergies.
+
+Q: What is the app's eye scanner for? Is it a medical diagnosis?
+A: Our Eye Scanner is a preliminary screening tool that uses image analysis to detect possible signs of common eye conditions. It is NOT a medical diagnosis and should NOT replace professional eye care. It is intended to raise awareness and encourage you to seek professional help if concerning signs are detected. Always consult a licensed eye care professional for accurate diagnosis and treatment.
+
+ABOUT THIS APP:
+This app (EyeCare Companion) is an educational and awareness tool designed to provide general information about eye health. It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your eye care professional with any questions about a medical condition.

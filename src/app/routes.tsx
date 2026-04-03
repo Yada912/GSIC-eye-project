@@ -52,6 +52,7 @@ const HealthGuide = lazy(() => retryLazyLoad(() => import("./pages/HealthGuide")
 const Glossary = lazy(() => retryLazyLoad(() => import("./pages/Glossary").then(m => ({ default: m.Glossary }))));
 const Account = lazy(() => retryLazyLoad(() => import("./pages/Account").then(m => ({ default: m.Account }))));
 const Login = lazy(() => retryLazyLoad(() => import("./pages/Login").then(m => ({ default: m.Login }))));
+const Admin = lazy(() => retryLazyLoad(() => import("./pages/Admin").then(m => ({ default: m.Admin }))));
 const NotFound = lazy(() => retryLazyLoad(() => import("./pages/NotFound").then(m => ({ default: m.NotFound }))));
 
 // Wrapper component with Suspense
@@ -76,6 +77,7 @@ export const router = createBrowserRouter([
       { path: "glossary", element: <LazyPage Component={Glossary} /> },
       { path: "account", element: <LazyPage Component={Account} /> },
       { path: "login", element: <LazyPage Component={Login} /> },
+      { path: "admin", element: <LazyPage Component={Admin} /> },
       { path: "*", element: <LazyPage Component={NotFound} /> },
     ],
   },

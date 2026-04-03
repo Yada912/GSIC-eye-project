@@ -1,138 +1,79 @@
 import { useState, useRef } from "react";
-import { Camera, Upload, ArrowLeft, AlertCircle, CheckCircle, Info, XCircle } from "lucide-react";
+import { Camera, Upload, ArrowLeft, AlertCircle, CheckCircle, Info, XCircle, ImageIcon } from "lucide-react";
 import { useNavigate } from "react-router";
 import { GlassCard } from "../components/GlassCard";
 import { Button } from "../components/ui/button";
-
-interface AnalysisResult {
-  status: "healthy" | "warning" | "caution";
-  confidence: number;
-  findings: string[];
-  recommendations: string[];
-}
+import { predictEyeCondition, predictionToAnalysis } from "../../lib/model";
 
 export function EyeScanner() {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
-  const [result, setResult] = useState<AnalysisResult | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [cameraActive, setCameraActive] = useState(false);
-  const [cameraError, setCameraError] = useState<string | null>(null);
+  const [result, setResult] = useState<ReturnType<typeof predictionToAnalysis> | null>(null);
+
+  const cameraInputRef = useRef<HTMLInputElement>(null);
+  const galleryInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      // Check file size (max 5MB for performance)
       if (file.size > 5 * 1024 * 1024) {
         alert("Image too large. Please choose an image under 5MB.");
         return;
       }
-      
       const reader = new FileReader();
-      reader.onload = (e) => {
-        setSelectedImage(e.target?.result as string);
+      reader.onload = (ev) => {
+        setSelectedImage(ev.target?.result as string);
         setResult(null);
       };
       reader.readAsDataURL(file);
     }
+    // Reset input so same file can be selected again
+    e.target.value = "";
   };
 
-  const startCamera = async () => {
-    setCameraError(null);
-    try {
-      // Check if mediaDevices is supported
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        setCameraError("Camera is not supported on this device or browser.");
-        return;
-      }
-
-      const stream = await navigator.mediaDevices.getUserMedia({ 
-        video: { facingMode: "user" } 
-      });
-      
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        setCameraActive(true);
-      }
-    } catch (err: any) {
-      console.error("Camera access error:", err);
-      
-      // Provide specific error messages based on error type
-      if (err.name === "NotAllowedError" || err.name === "PermissionDeniedError") {
-        setCameraError("Camera permission was denied. To enable camera access:\n\n1. Click the camera icon in your browser's address bar\n2. Change the camera setting to 'Allow'\n3. Refresh the page and try again\n\nOr simply use the Upload Image option below instead.");
-      } else if (err.name === "NotFoundError" || err.name === "DevicesNotFoundError") {
-        setCameraError("No camera found on this device. Please use the upload option instead.");
-      } else if (err.name === "NotReadableError" || err.name === "TrackStartError") {
-        setCameraError("Camera is already in use by another application. Please close other apps and try again or use upload.");
-      } else if (err.name === "OverconstrainedError" || err.name === "ConstraintNotSatisfiedError") {
-        setCameraError("Camera doesn't meet requirements. Please use the upload option instead.");
-      } else if (err.name === "NotSupportedError") {
-        setCameraError("Camera is not supported on this device. Please use the upload option instead.");
-      } else if (err.name === "SecurityError") {
-        setCameraError("Camera access blocked due to security settings. Please enable HTTPS or use the upload option.");
-      } else {
-        setCameraError("Unable to access camera. Please try the upload option instead.");
-      }
-    }
-  };
-
-  const capturePhoto = () => {
-    if (videoRef.current) {
-      const canvas = document.createElement("canvas");
-      canvas.width = videoRef.current.videoWidth;
-      canvas.height = videoRef.current.videoHeight;
-      const ctx = canvas.getContext("2d");
-      if (ctx) {
-        ctx.drawImage(videoRef.current, 0, 0);
-        setSelectedImage(canvas.toDataURL("image/jpeg"));
-        stopCamera();
-      }
-    }
-  };
-
-  const stopCamera = () => {
-    if (videoRef.current?.srcObject) {
-      const stream = videoRef.current.srcObject as MediaStream;
-      stream.getTracks().forEach((track) => track.stop());
-      setCameraActive(false);
-    }
-  };
-
-  const analyzeImage = () => {
+  const analyzeImage = async () => {
+    if (!selectedImage) return;
     setAnalyzing(true);
-    
-    // Mock analysis
-    setTimeout(() => {
-      const mockResults: AnalysisResult[] = [
-        {
-          status: "healthy",
-          confidence: 92,
-          findings: ["Clear cornea", "Normal pupil response", "No visible inflammation"],
-          recommendations: [
-            "Continue regular eye care routine",
-            "Schedule annual check-up",
-            "Maintain healthy screen habits",
-          ],
-        },
-        {
-          status: "warning",
-          confidence: 85,
-          findings: ["Slight redness detected", "Possible eye strain indicators"],
-          recommendations: [
-            "Take regular breaks from screens",
-            "Use lubricating eye drops",
-            "Consider consulting an eye care professional",
-            "Ensure proper lighting when reading",
-          ],
-        },
-      ];
 
-      const randomResult = mockResults[Math.floor(Math.random() * mockResults.length)];
-      setResult(randomResult);
-      setAnalyzing(false);
-    }, 2000);
+    // Small delay for UX (model loading takes a moment)
+    await new Promise((r) => setTimeout(r, 800));
+
+    try {
+      const prediction = await predictEyeCondition(selectedImage);
+      const analysis = predictionToAnalysis(prediction);
+      setResult(analysis);
+    } catch {
+      setResult({
+        status: "warning",
+        condition: "healthy",
+        confidence: 0,
+        allScores: { healthy: 0, "dry-eye": 0, conjunctivitis: 0, cataract: 0, glaucoma: 0 },
+        findings: ["Analysis failed. Please try a clearer image."],
+        recommendations: ["Ensure good lighting when taking the photo", "Hold camera steady", "Position the eye clearly in frame"],
+      });
+    }
+
+    setAnalyzing(false);
+  };
+
+  const reset = () => {
+    setSelectedImage(null);
+    setResult(null);
+  };
+
+  const getStatusIcon = () => {
+    if (!result) return null;
+    if (result.status === "healthy") return <CheckCircle className="w-6 h-6 text-green-500" />;
+    if (result.status === "caution") return <AlertCircle className="w-6 h-6 text-red-500" />;
+    return <AlertCircle className="w-6 h-6 text-orange-500" />;
+  };
+
+  const getStatusColor = () => {
+    if (!result) return "";
+    if (result.status === "healthy") return "text-green-600";
+    if (result.status === "caution") return "text-red-600";
+    return "text-orange-600";
   };
 
   return (
@@ -147,7 +88,7 @@ export function EyeScanner() {
         </button>
         <div>
           <h1 className="text-2xl">Eye Scanner</h1>
-          <p className="text-sm text-muted-foreground">AI-powered analysis</p>
+          <p className="text-sm text-muted-foreground">Capture & analyze</p>
         </div>
       </div>
 
@@ -160,28 +101,12 @@ export function EyeScanner() {
         </p>
       </GlassCard>
 
-      {/* Camera/Upload Section */}
-      {!selectedImage && !cameraActive && (
+      {/* Capture / Upload Options */}
+      {!selectedImage && (
         <div className="space-y-3">
-          {/* Show error message if camera failed */}
-          {cameraError && (
-            <GlassCard className="p-5 flex items-start gap-3 bg-red-50/50 border-red-200/50">
-              <XCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
-              <div className="flex-1">
-                <h4 className="text-red-900 mb-2">Camera Access Issue</h4>
-                <p className="text-sm text-red-700 whitespace-pre-line leading-relaxed">{cameraError}</p>
-                <button
-                  onClick={() => setCameraError(null)}
-                  className="text-sm text-red-600 underline mt-3 hover:text-red-800"
-                >
-                  Dismiss
-                </button>
-              </div>
-            </GlassCard>
-          )}
-
+          {/* Capture with Camera */}
           <GlassCard
-            onClick={startCamera}
+            onClick={() => cameraInputRef.current?.click()}
             className="p-8 cursor-pointer active:scale-[0.98] transition-transform"
           >
             <div className="flex flex-col items-center text-center gap-3">
@@ -189,16 +114,17 @@ export function EyeScanner() {
                 <Camera className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h3 className="mb-1">Use Camera</h3>
+                <h3 className="mb-1">Take a Photo</h3>
                 <p className="text-sm text-muted-foreground">
-                  Take a photo with your device camera
+                  Open camera and capture your eye
                 </p>
               </div>
             </div>
           </GlassCard>
 
+          {/* Upload from Gallery */}
           <GlassCard
-            onClick={() => fileInputRef.current?.click()}
+            onClick={() => galleryInputRef.current?.click()}
             className="p-8 cursor-pointer active:scale-[0.98] transition-transform"
           >
             <div className="flex flex-col items-center text-center gap-3">
@@ -206,13 +132,46 @@ export function EyeScanner() {
                 <Upload className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h3 className="mb-1">Upload Image</h3>
-                <p className="text-sm text-muted-foreground">Choose a photo from your gallery</p>
+                <h3 className="mb-1">Upload from Gallery</h3>
+                <p className="text-sm text-muted-foreground">Choose a photo from your device</p>
               </div>
             </div>
           </GlassCard>
+
+          {/* Tips card */}
+          <GlassCard className="p-5">
+            <div className="flex items-start gap-3">
+              <ImageIcon className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-sm mb-2">For best results:</h4>
+                <ul className="space-y-1">
+                  {[
+                    "Use good, natural lighting",
+                    "Hold camera steady and close to your eye",
+                    "Keep eye open and look straight ahead",
+                    "Ensure the entire eye is visible in frame",
+                  ].map((tip, i) => (
+                    <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      {tip}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </GlassCard>
+
+          {/* Hidden file inputs */}
           <input
-            ref={fileInputRef}
+            ref={cameraInputRef}
+            type="file"
+            accept="image/*"
+            capture="environment"
+            onChange={handleFileSelect}
+            className="hidden"
+          />
+          <input
+            ref={galleryInputRef}
             type="file"
             accept="image/*"
             onChange={handleFileSelect}
@@ -221,56 +180,37 @@ export function EyeScanner() {
         </div>
       )}
 
-      {/* Camera View */}
-      {cameraActive && (
-        <GlassCard className="p-4 space-y-4">
-          <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            className="w-full rounded-2xl bg-black"
-          />
-          <div className="flex gap-3">
-            <Button
-              onClick={capturePhoto}
-              className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white"
-            >
-              Capture Photo
-            </Button>
-            <Button onClick={stopCamera} variant="outline" className="backdrop-blur-xl">
-              Cancel
-            </Button>
-          </div>
-        </GlassCard>
-      )}
-
-      {/* Image Preview & Analysis */}
+      {/* Image Preview & Analyze */}
       {selectedImage && !result && (
         <GlassCard className="p-4 space-y-4">
           <img
             src={selectedImage}
-            alt="Selected eye"
+            alt="Captured eye"
             className="w-full rounded-2xl object-cover max-h-64"
           />
-          <div className="flex gap-3">
-            <Button
-              onClick={analyzeImage}
-              disabled={analyzing}
-              className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white"
-            >
-              {analyzing ? "Analyzing..." : "Analyze Image"}
-            </Button>
-            <Button
-              onClick={() => {
-                setSelectedImage(null);
-                setResult(null);
-              }}
-              variant="outline"
-              className="backdrop-blur-xl"
-            >
-              Retake
-            </Button>
-          </div>
+          {analyzing && (
+            <div className="flex flex-col items-center gap-3 py-4">
+              <div className="flex gap-1">
+                <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce" />
+                <div className="w-3 h-3 rounded-full bg-cyan-500 animate-bounce [animation-delay:0.2s]" />
+                <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce [animation-delay:0.4s]" />
+              </div>
+              <p className="text-sm text-muted-foreground">Analyzing image...</p>
+            </div>
+          )}
+          {!analyzing && (
+            <div className="flex gap-3">
+              <Button
+                onClick={analyzeImage}
+                className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white"
+              >
+                Analyze Image
+              </Button>
+              <Button onClick={reset} variant="outline" className="backdrop-blur-xl">
+                Retake
+              </Button>
+            </div>
+          )}
         </GlassCard>
       )}
 
@@ -287,17 +227,20 @@ export function EyeScanner() {
 
           <GlassCard className="p-5">
             <div className="flex items-center gap-3 mb-4">
-              {result.status === "healthy" ? (
-                <CheckCircle className="w-6 h-6 text-green-500" />
-              ) : (
-                <AlertCircle className="w-6 h-6 text-orange-500" />
-              )}
+              {getStatusIcon()}
               <div className="flex-1">
-                <h3 className="capitalize">{result.status}</h3>
+                <h3 className={`capitalize ${getStatusColor()}`}>
+                  {result.condition.replace("-", " ")}
+                </h3>
                 <p className="text-sm text-muted-foreground">
-                  Confidence: {result.confidence}%
+                  {result.confidence > 0 ? `Confidence: ${result.confidence}%` : "Preliminary screening result"}
                 </p>
               </div>
+              {result.status !== "healthy" && (
+                <div className="flex items-center gap-1">
+                  <XCircle className="w-4 h-4 text-red-400" />
+                </div>
+              )}
             </div>
 
             <div className="space-y-4">
@@ -327,11 +270,20 @@ export function EyeScanner() {
             </div>
           </GlassCard>
 
+          {result.status !== "healthy" && (
+            <GlassCard className="p-4 border-2 border-orange-200">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                <p className="text-sm text-muted-foreground">
+                  This screening detected potential indicators. Please consult a licensed eye care
+                  professional for a proper diagnosis.
+                </p>
+              </div>
+            </GlassCard>
+          )}
+
           <Button
-            onClick={() => {
-              setSelectedImage(null);
-              setResult(null);
-            }}
+            onClick={reset}
             className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white"
           >
             Scan Another Image

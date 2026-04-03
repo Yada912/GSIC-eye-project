@@ -1,0 +1,215 @@
+[
+  {
+    "id": "dry-eye",
+    "name": "Dry Eye Syndrome",
+    "category": "common",
+    "description": "A condition where eyes don't produce enough tears or tears evaporate too quickly, causing discomfort and potential vision problems.",
+    "symptoms": [
+      "Stinging or burning sensation",
+      "Scratchy or gritty feeling",
+      "Excessive tearing (reflex response)",
+      "Red or irritated eyes",
+      "Blurred vision",
+      "Eye fatigue"
+    ],
+    "prevention": [
+      "Blink frequently, especially during screen time",
+      "Use a humidifier in dry environments",
+      "Take regular breaks from screens",
+      "Stay well-hydrated",
+      "Wear wraparound sunglasses outdoors"
+    ],
+    "detection": [
+      "Self-reported symptoms",
+      "Tear production test (Schirmer test)",
+      "Tear quality assessment",
+      "Eye surface examination"
+    ]
+  },
+  {
+    "id": "cataracts",
+    "name": "Cataracts",
+    "category": "age-related",
+    "description": "Clouding of the eye's natural lens, most commonly occurring with age. Vision becomes progressively blurred, like looking through a foggy window.",
+    "symptoms": [
+      "Cloudy or blurry vision",
+      "Colors appear faded",
+      "Poor night vision",
+      "Halos around lights",
+      "Frequent prescription changes",
+      "Double vision in one eye"
+    ],
+    "prevention": [
+      "Wear UV-protective sunglasses",
+      "Quit smoking",
+      "Manage diabetes effectively",
+      "Limit alcohol consumption",
+      "Eat antioxidant-rich foods"
+    ],
+    "detection": [
+      "Comprehensive eye exam",
+      "Visual acuity test",
+      "Slit-lamp examination",
+      "Retinal exam"
+    ]
+  },
+  {
+    "id": "glaucoma",
+    "name": "Glaucoma",
+    "category": "serious",
+    "description": "A group of eye conditions that damage the optic nerve, often due to increased eye pressure. Can lead to permanent vision loss if untreated.",
+    "symptoms": [
+      "Gradual loss of peripheral vision",
+      "Tunnel vision in advanced stages",
+      "Eye pain (in acute cases)",
+      "Blurred vision",
+      "Halos around lights",
+      "Often no early symptoms"
+    ],
+    "prevention": [
+      "Regular comprehensive eye exams (crucial!)",
+      "Exercise regularly",
+      "Protect eyes from injury",
+      "Manage blood pressure",
+      "Avoid smoking"
+    ],
+    "detection": [
+      "Tonometry (eye pressure measurement)",
+      "Optic nerve examination",
+      "Visual field test",
+      "Corneal thickness measurement",
+      "Imaging tests (OCT)"
+    ]
+  },
+  {
+    "id": "amd",
+    "name": "Age-Related Macular Degeneration",
+    "category": "age-related",
+    "description": "Deterioration of the macula, the central part of the retina, leading to loss of central vision. Most common cause of vision loss in people over 50.",
+    "symptoms": [
+      "Blurred or reduced central vision",
+      "Straight lines appear wavy",
+      "Dark or empty areas in center of vision",
+      "Difficulty recognizing faces",
+      "Colors appear less vibrant"
+    ],
+    "prevention": [
+      "Don't smoke",
+      "Eat leafy greens and fish",
+      "Maintain healthy weight",
+      "Exercise regularly",
+      "Protect eyes from UV light",
+      "Control blood pressure and cholesterol"
+    ],
+    "detection": [
+      "Dilated eye exam",
+      "Amsler grid test",
+      "Optical coherence tomography (OCT)",
+      "Fluorescein angiography"
+    ]
+  },
+  {
+    "id": "conjunctivitis",
+    "name": "Conjunctivitis (Pink Eye)",
+    "category": "common",
+    "description": "Inflammation of the conjunctiva (the membrane covering the white part of the eye), often caused by infection, allergies, or irritants.",
+    "symptoms": [
+      "Pink or red color in the white of the eye",
+      "Increased tearing",
+      "Thick discharge that crusts over",
+      "Itching or burning sensation",
+      "Gritty feeling in the eye",
+      "Swollen eyelids"
+    ],
+    "prevention": [
+      "Wash hands frequently",
+      "Avoid touching or rubbing eyes",
+      "Don't share towels or eye makeup",
+      "Clean contact lenses properly",
+      "Avoid known allergens"
+    ],
+    "detection": [
+      "Physical examination",
+      "Medical history review",
+      "Eye discharge sample (if needed)",
+      "Allergy testing (for allergic conjunctivitis)"
+    ]
+  },
+  {
+    "id": "diabetic-retinopathy",
+    "name": "Diabetic Retinopathy",
+    "category": "serious",
+    "description": "Damage to blood vessels in the retina caused by diabetes. Leading cause of blindness in working-age adults.",
+    "symptoms": [
+      "Spots or floaters in vision",
+      "Blurred vision",
+      "Fluctuating vision",
+      "Dark or empty areas in vision",
+      "Vision loss",
+      "Often no early symptoms"
+    ],
+    "prevention": [
+      "Control blood sugar levels",
+      "Manage blood pressure and cholesterol",
+      "Regular eye exams (at least annually)",
+      "Maintain healthy weight",
+      "Exercise regularly",
+      "Don't smoke"
+    ],
+    "detection": [
+      "Dilated eye exam",
+      "Fluorescein angiography",
+      "Optical coherence tomography (OCT)",
+      "Blood sugar monitoring"
+    ]
+  },
+  {
+    "id": "astigmatism",
+    "name": "Astigmatism",
+    "category": "common",
+    "description": "An imperfection in the curvature of the cornea or lens, causing blurred or distorted vision at all distances.",
+    "symptoms": [
+      "Blurred or distorted vision",
+      "Eye strain",
+      "Headaches",
+      "Difficulty seeing at night",
+      "Squinting to see clearly"
+    ],
+    "prevention": [
+      "Cannot be prevented (usually hereditary)",
+      "Early detection through eye exams",
+      "Proper correction with glasses/contacts"
+    ],
+    "detection": [
+      "Vision test",
+      "Keratometry (cornea curvature measurement)",
+      "Corneal topography",
+      "Refraction assessment"
+    ]
+  },
+  {
+    "id": "retinal-detachment",
+    "name": "Retinal Detachment",
+    "category": "serious",
+    "description": "A medical emergency where the retina pulls away from the back of the eye. Requires immediate treatment to prevent permanent vision loss.",
+    "symptoms": [
+      "Sudden appearance of floaters",
+      "Flashes of light",
+      "Shadow or curtain over vision",
+      "Sudden blurred vision",
+      "No pain initially"
+    ],
+    "prevention": [
+      "Protect eyes from injury",
+      "Regular eye exams (especially if high risk)",
+      "Manage diabetes and blood pressure",
+      "Seek immediate care for symptoms"
+    ],
+    "detection": [
+      "Dilated eye examination",
+      "Ultrasound of the eye",
+      "Ophthalmoscopy",
+      "This is a MEDICAL EMERGENCY"
+    ]
+  }
+]

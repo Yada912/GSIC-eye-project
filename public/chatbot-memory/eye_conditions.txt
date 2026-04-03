@@ -1,0 +1,92 @@
+EYE CONDITIONS DATABASE
+========================
+This file serves as base knowledge for the AI chatbot assistant.
+
+--- DRY EYE SYNDROME ---
+Category: Common
+Description: A condition where eyes don't produce enough tears or tears evaporate too quickly.
+Symptoms: Stinging or burning sensation, scratchy or gritty feeling, excessive tearing (reflex response), red or irritated eyes, blurred vision, eye fatigue.
+Causes: Aging, hormonal changes, medications (antihistamines, decongestants), environmental conditions (wind, dry air), prolonged screen use, contact lens wear, certain medical conditions.
+Treatment: Artificial tears (lubricating eye drops), warm compresses, omega-3 supplements, prescription eye drops (cyclosporine), punctal plugs to retain tears, lifestyle changes.
+When to see a doctor: If symptoms persist despite home remedies, if vision is significantly affected, or if eye is painful.
+
+--- CATARACTS ---
+Category: Age-Related
+Description: Clouding of the eye's natural lens that worsens over time, like looking through a foggy window.
+Symptoms: Cloudy or blurry vision, colors appear faded or yellowed, poor night vision, halos around lights, frequent prescription changes, double vision in one eye, glare sensitivity.
+Causes: Aging (most common), UV radiation exposure, smoking, diabetes, prolonged corticosteroid use, previous eye injury or surgery.
+Treatment: Early stages: stronger glasses, magnifying lenses, brighter lighting. Advanced: cataract surgery (phacoemulsification) to replace clouded lens with clear artificial lens. Surgery is very safe and effective.
+Prevention: UV-protective sunglasses, quit smoking, manage diabetes, antioxidant-rich diet, limit alcohol.
+When to see a doctor: When vision changes affect daily activities like driving or reading.
+
+--- GLAUCOMA ---
+Category: Serious
+Description: Group of conditions damaging the optic nerve, often from elevated intraocular pressure. Called "silent thief of sight" because it often has no early symptoms.
+Types: Open-angle glaucoma (most common, gradual), angle-closure glaucoma (sudden onset, emergency), normal-tension glaucoma.
+Symptoms: Gradual peripheral vision loss, tunnel vision (advanced), eye pain (acute angle-closure), blurred vision, halos around lights. Often NO early symptoms.
+Risk factors: Age over 60, family history, high eye pressure, African/Hispanic heritage, certain medical conditions (diabetes, high blood pressure, heart disease).
+Treatment: Eye drops to reduce pressure, laser therapy (trabeculoplasty), surgery. Treatment slows progression but cannot restore lost vision.
+When to see a doctor: IMMEDIATELY if sudden eye pain, nausea, vomiting, blurred vision, halos around lights (acute angle-closure emergency).
+
+--- AGE-RELATED MACULAR DEGENERATION (AMD) ---
+Category: Age-Related & Serious
+Description: Deterioration of the macula (central retina), causing loss of central vision. Leading cause of blindness in adults over 50.
+Types: Dry AMD (most common, slow progression), Wet AMD (rapid vision loss from abnormal blood vessel growth).
+Symptoms: Blurred or reduced central vision, straight lines appear wavy (Amsler grid distortion), dark/empty areas in central vision, difficulty recognizing faces, reduced color brightness.
+Risk factors: Age over 50, smoking, family history, obesity, cardiovascular disease, light eye color, prolonged UV exposure.
+Treatment: Dry AMD: AREDS2 vitamins (zinc, vitamins C, E, lutein, zeaxanthin). Wet AMD: anti-VEGF injections (ranibizumab, bevacizumab, aflibercept), photodynamic therapy.
+When to see a doctor: Any sudden change in central vision, wavy lines, blank spots in center of vision.
+
+--- CONJUNCTIVITIS (PINK EYE) ---
+Category: Common
+Description: Inflammation of the conjunctiva (clear membrane covering white part of eye and inside of eyelids).
+Types: Viral (most common, highly contagious), Bacterial (contagious, requires antibiotics), Allergic (not contagious, triggered by allergens), Chemical/irritant.
+Symptoms: Pink or red eyes, watery discharge (viral), thick yellow-green discharge (bacterial), itching (allergic), burning, gritty feeling, swollen eyelids.
+Treatment: Viral: artificial tears, cool compresses, resolves in 1-2 weeks. Bacterial: antibiotic eye drops/ointment. Allergic: antihistamine drops, avoid allergens.
+Prevention: Frequent handwashing, avoid touching eyes, don't share towels/eye makeup, replace contact lenses properly.
+When to see a doctor: Severe symptoms, vision changes, light sensitivity, moderate-to-severe pain, symptoms in newborn.
+
+--- DIABETIC RETINOPATHY ---
+Category: Serious
+Description: Damage to retinal blood vessels caused by high blood sugar from diabetes. Leading cause of blindness in working-age adults.
+Stages: Mild non-proliferative, Moderate non-proliferative, Severe non-proliferative, Proliferative (most advanced).
+Symptoms: Often no early symptoms, floaters, blurred vision, vision that fluctuates, dark or empty areas in vision, vision loss. Important: symptoms appear late.
+Risk factors: Duration of diabetes, poor blood sugar control, high blood pressure, high cholesterol, pregnancy, tobacco use.
+Treatment: Blood sugar control, blood pressure management, laser photocoagulation, anti-VEGF injections, vitrectomy (surgery).
+Prevention: Regular eye exams (annually), blood sugar control (HbA1c <7%), blood pressure control, cholesterol management, no smoking.
+When to see a doctor: All diabetics should have annual dilated eye exams. Immediately if sudden vision changes.
+
+--- ASTIGMATISM ---
+Category: Common Refractive Error
+Description: Imperfection in cornea or lens curvature causing light to focus unevenly on the retina, resulting in blurred vision at all distances.
+Symptoms: Blurred or distorted vision at all distances, eye strain, headaches, difficulty seeing at night, squinting to see clearly.
+Causes: Usually hereditary (corneal astigmatism), can also be in lens (lenticular astigmatism). Most people have mild astigmatism from birth.
+Treatment: Eyeglasses, contact lenses (toric lenses), refractive surgery (LASIK, PRK).
+When to see a doctor: If experiencing vision problems affecting daily activities or eye strain.
+
+--- RETINAL DETACHMENT ---  
+Category: Medical Emergency
+Description: Retina peels away from its normal position at the back of the eye. REQUIRES IMMEDIATE MEDICAL ATTENTION.
+Symptoms: Sudden increase in floaters, flashes of light in one or both eyes, shadow or curtain over field of vision, sudden blurred vision. Usually painless.
+Risk factors: Extreme nearsightedness (myopia), previous retinal detachment, family history, previous eye surgery, eye injury, age over 50.
+Treatment: Pneumatic retinopexy, scleral buckle, vitrectomy. Time is critical - treat within 24 hours for best outcomes.
+EMERGENCY: If you experience floaters + flashes + curtain over vision, go to emergency room IMMEDIATELY.
+
+--- MYOPIA (NEARSIGHTEDNESS) ---
+Category: Common Refractive Error
+Description: Light focuses in front of retina instead of on it, causing distant objects to appear blurry.
+Symptoms: Blurry distance vision, squinting, eye strain, headaches, difficulty seeing while driving especially at night.
+Causes: Eyeball too long or cornea too curved. Genetics + near work + reduced outdoor time.
+Treatment: Glasses, contact lenses, LASIK/refractive surgery. Myopia control options for children: atropine drops, orthokeratology, multifocal contacts.
+
+--- HYPEROPIA (FARSIGHTEDNESS) ---
+Category: Common Refractive Error
+Description: Light focuses behind retina causing nearby objects to be blurry; distant may also be affected.
+Symptoms: Difficulty focusing on close objects, eye strain after close work, headaches, possible blurry distance vision.
+Treatment: Glasses, contact lenses, refractive surgery.
+
+--- PRESBYOPIA ---
+Category: Age-Related
+Description: Age-related loss of near focusing ability, typically becoming noticeable in early-to-mid 40s.
+Symptoms: Difficulty reading small print, need to hold reading material further away, eye strain or headaches with near work.
+Treatment: Reading glasses, bifocals, progressive lenses, multifocal contact lenses, monovision correction.

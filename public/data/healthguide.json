@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "title": "Protect from UV Rays",
+    "description": "Shield your eyes from harmful ultraviolet radiation",
+    "icon": "Sun",
+    "tips": [
+      "Wear sunglasses with 100% UV protection",
+      "Choose wraparound styles for maximum coverage",
+      "Wear a wide-brimmed hat outdoors",
+      "Avoid direct sun during peak hours (10am-4pm)"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Manage Screen Time",
+    "description": "Reduce digital eye strain and fatigue",
+    "icon": "Monitor",
+    "tips": [
+      "Follow the 20-20-20 rule: Every 20 minutes, look 20 feet away for 20 seconds",
+      "Position screen 20-26 inches from your eyes",
+      "Adjust brightness to match surroundings",
+      "Use blue light filters in the evening",
+      "Keep screen slightly below eye level"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Stay Hydrated",
+    "description": "Maintain moisture for optimal eye function",
+    "icon": "Droplets",
+    "tips": [
+      "Drink 8-10 glasses of water daily",
+      "Use a humidifier in dry environments",
+      "Apply artificial tears if eyes feel dry",
+      "Blink frequently, especially during screen use"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Regular Eye Exams",
+    "description": "Detect problems early through professional check-ups",
+    "icon": "Eye",
+    "tips": [
+      "Adults: Get comprehensive exam every 1-2 years",
+      "Over 60: Annual exams recommended",
+      "Track any vision changes between visits",
+      "Inform doctor of family eye disease history"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Limit Caffeine & Alcohol",
+    "description": "Reduce substances that can affect eye health",
+    "icon": "Coffee",
+    "tips": [
+      "Limit caffeine intake, especially before bed",
+      "Moderate alcohol consumption",
+      "Stay hydrated when consuming these beverages",
+      "Monitor how they affect your vision or comfort"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Get Quality Sleep",
+    "description": "Allow eyes to rest and recover",
+    "icon": "Moon",
+    "tips": [
+      "Aim for 7-9 hours of sleep nightly",
+      "Keep bedroom dark and cool",
+      "Avoid screens 1 hour before bed",
+      "Use sleep mask if needed"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Eat Eye-Healthy Foods",
+    "description": "Nourish your eyes with the right nutrients",
+    "icon": "Apple",
+    "tips": [
+      "Leafy greens: spinach, kale (lutein)",
+      "Fish: salmon, tuna (omega-3s)",
+      "Citrus fruits (vitamin C)",
+      "Carrots, sweet potatoes (beta-carotene)",
+      "Nuts and seeds (vitamin E)"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Exercise Regularly",
+    "description": "Improve circulation for better eye health",
+    "icon": "Activity",
+    "tips": [
+      "30 minutes of moderate exercise daily",
+      "Activities: walking, swimming, cycling",
+      "Exercise helps prevent diabetes and hypertension",
+      "Both conditions can affect vision"
+    ]
+  }
+]
