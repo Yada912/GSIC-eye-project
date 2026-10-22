@@ -54,7 +54,7 @@ export function HealthGuide() {
 
     fetch("/data/healthguide.json")
       .then((res) => {
-        if (!res.ok) throw new Error("Failed to load health guide data");
+        if (!res.ok) throw new Error("Gagal memuat data panduan kesehatan");
         return res.json();
       })
       .then((data: StepData[]) => {
@@ -66,8 +66,8 @@ export function HealthGuide() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error loading health guide:", err);
-        setError("Failed to load health guide. Please try again.");
+        console.error("Kesalahan memuat panduan kesehatan:", err);
+        setError("Gagal memuat panduan kesehatan. Silakan coba lagi.");
         setLoading(false);
       });
   }, []);
@@ -100,7 +100,7 @@ export function HealthGuide() {
           </button>
           <div className="flex-1">
             <h1 className="text-xl">{selectedStep.title}</h1>
-            <p className="text-sm text-muted-foreground">Step {selectedStep.id} of {steps.length}</p>
+            <p className="text-sm text-muted-foreground">Langkah {selectedStep.id} dari {steps.length}</p>
           </div>
         </div>
 
@@ -116,7 +116,7 @@ export function HealthGuide() {
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-sm">How to implement:</h3>
+            <h3 className="text-sm">Cara menerapkannya:</h3>
             {selectedStep.tips.map((tip, i) => (
               <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/50">
                 <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -133,7 +133,7 @@ export function HealthGuide() {
           }}
           className="w-full p-4 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white active:scale-[0.98] transition-transform"
         >
-          {selectedStep.completed ? "Mark as Incomplete" : "Mark as Complete"}
+          {selectedStep.completed ? "Tandai Belum Selesai" : "Tandai Selesai"}
         </button>
       </div>
     );
@@ -150,8 +150,8 @@ export function HealthGuide() {
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-2xl">Eye Health Guide</h1>
-          <p className="text-sm text-muted-foreground">{steps.length} essential steps</p>
+          <h1 className="text-2xl">Panduan Kesehatan Mata</h1>
+          <p className="text-sm text-muted-foreground">{steps.length} langkah esensial</p>
         </div>
       </div>
 
@@ -170,7 +170,7 @@ export function HealthGuide() {
             onClick={() => window.location.reload()}
             className="mt-4 text-sm text-primary hover:underline"
           >
-            Try Again
+            Coba Lagi
           </button>
         </GlassCard>
       )}
@@ -181,9 +181,9 @@ export function HealthGuide() {
           <GlassCard className="p-5 mb-6">
             <div className="flex items-center justify-between mb-3">
               <div>
-                <h3>Your Progress</h3>
+                <h3>Progres Anda</h3>
                 <p className="text-sm text-muted-foreground">
-                  {completedCount} of {steps.length} steps completed
+                  {completedCount} dari {steps.length} langkah selesai
                 </p>
               </div>
               <div className="text-2xl bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">

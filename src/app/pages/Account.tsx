@@ -28,9 +28,9 @@ export function Account() {
   const handleClearChatHistory = (type: "professional" | "chatbot" | "all") => {
     if (
       !confirm(
-        `Are you sure you want to clear ${
-          type === "all" ? "all" : type
-        } chat history? This cannot be undone.`
+        `Apakah Anda yakin ingin menghapus ${
+          type === "all" ? "semua" : type === "professional" ? "obrolan profesional" : "bot obrolan"
+        } riwayat obrolan? Ini tidak dapat dibatalkan.`
       )
     ) {
       return;
@@ -50,7 +50,7 @@ export function Account() {
   };
 
   const handleLogout = () => {
-    if (confirm("Are you sure you want to sign out?")) {
+    if (confirm("Apakah Anda yakin ingin keluar?")) {
       localStorage.removeItem("eyecare_user");
       navigate("/");
     }
@@ -59,7 +59,7 @@ export function Account() {
   const handleDeleteAccount = () => {
     if (
       confirm(
-        "Are you sure you want to delete your account? All data will be permanently removed. This cannot be undone."
+        "Apakah Anda yakin ingin menghapus akun Anda? Semua data akan dihapus secara permanen. Ini tidak dapat dibatalkan."
       )
     ) {
       localStorage.removeItem("eyecare_user");
@@ -80,8 +80,8 @@ export function Account() {
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-2xl">Account</h1>
-          <p className="text-sm text-muted-foreground">Manage your profile</p>
+          <h1 className="text-2xl">Akun</h1>
+          <p className="text-sm text-muted-foreground">Kelola profil Anda</p>
         </div>
       </div>
 
@@ -93,24 +93,24 @@ export function Account() {
                 <User className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h3 className="mb-2">Not Signed In</h3>
+                <h3 className="mb-2">Belum Masuk</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Sign in to access chat features and save your conversations.
+                  Masuk untuk mengakses fitur obrolan dan menyimpan percakapan Anda.
                 </p>
               </div>
               <Button
                 onClick={() => navigate("/login")}
                 className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white"
               >
-                Sign In / Sign Up
+                Masuk / Daftar
               </Button>
             </div>
           </GlassCard>
 
           <GlassCard className="p-4">
             <p className="text-xs text-center text-muted-foreground">
-              You can still use the Eye Scanner, Health Guide, and Glossary without an account.
-              Only chat features require sign-in.
+              Anda masih dapat menggunakan fitur Scanner, Panduan Kesehatan, dan Istilah Mata tanpa akun.
+              Hanya fitur obrolan yang mewajibkan Anda untuk masuk.
             </p>
           </GlassCard>
         </div>
@@ -118,12 +118,12 @@ export function Account() {
         <div className="space-y-4">
           {/* Profile Info */}
           <GlassCard className="p-5">
-            <h3 className="mb-4">Profile Information</h3>
+            <h3 className="mb-4">Informasi Profil</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3 p-3 rounded-xl bg-white/50">
                 <User className="w-5 h-5 text-primary" />
                 <div className="flex-1">
-                  <p className="text-xs text-muted-foreground">Name</p>
+                  <p className="text-xs text-muted-foreground">Nama</p>
                   <p className="text-sm">{user.name}</p>
                 </div>
               </div>
@@ -137,7 +137,7 @@ export function Account() {
               <div className="flex items-center gap-3 p-3 rounded-xl bg-white/50">
                 <Calendar className="w-5 h-5 text-primary" />
                 <div className="flex-1">
-                  <p className="text-xs text-muted-foreground">Member Since</p>
+                  <p className="text-xs text-muted-foreground">Anggota Sejak</p>
                   <p className="text-sm">{new Date(parseInt(user.id)).toLocaleDateString()}</p>
                 </div>
               </div>
@@ -146,15 +146,15 @@ export function Account() {
 
           {/* Chat History */}
           <GlassCard className="p-5">
-            <h3 className="mb-4">Chat History</h3>
+            <h3 className="mb-4">Riwayat Obrolan</h3>
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 rounded-xl bg-white/50">
                 <div className="flex items-center gap-3">
                   <MessageCircle className="w-5 h-5 text-blue-500" />
                   <div>
-                    <p className="text-sm">Professional Chat</p>
+                    <p className="text-sm">Obrolan Profesional</p>
                     <p className="text-xs text-muted-foreground">
-                      {chatHistory.professional} messages
+                      {chatHistory.professional} pesan
                     </p>
                   </div>
                 </div>
@@ -163,7 +163,7 @@ export function Account() {
                     onClick={() => handleClearChatHistory("professional")}
                     className="text-xs text-red-600 hover:text-red-700 active:scale-95 transition-all"
                   >
-                    Clear
+                    Hapus
                   </button>
                 )}
               </div>
@@ -172,8 +172,8 @@ export function Account() {
                 <div className="flex items-center gap-3">
                   <MessageCircle className="w-5 h-5 text-cyan-500" />
                   <div>
-                    <p className="text-sm">AI Assistant</p>
-                    <p className="text-xs text-muted-foreground">{chatHistory.chatbot} messages</p>
+                    <p className="text-sm">Asisten AI</p>
+                    <p className="text-xs text-muted-foreground">{chatHistory.chatbot} pesan</p>
                   </div>
                 </div>
                 {chatHistory.chatbot > 0 && (
@@ -181,7 +181,7 @@ export function Account() {
                     onClick={() => handleClearChatHistory("chatbot")}
                     className="text-xs text-red-600 hover:text-red-700 active:scale-95 transition-all"
                   >
-                    Clear
+                    Hapus
                   </button>
                 )}
               </div>
@@ -192,7 +192,7 @@ export function Account() {
                   variant="outline"
                   className="w-full backdrop-blur-xl border-red-200 text-red-600 hover:bg-red-50"
                 >
-                  Clear All Chat History
+                  Hapus Semua Riwayat Obrolan
                 </Button>
               )}
             </div>
@@ -200,7 +200,7 @@ export function Account() {
 
           {/* Actions */}
           <GlassCard className="p-5">
-            <h3 className="mb-4">Account Actions</h3>
+            <h3 className="mb-4">Tindakan Akun</h3>
             <div className="space-y-3">
               <Button
                 onClick={handleLogout}
@@ -208,7 +208,7 @@ export function Account() {
                 className="w-full backdrop-blur-xl justify-start gap-3"
               >
                 <LogOut className="w-5 h-5" />
-                Sign Out
+                Keluar
               </Button>
 
               <Button
@@ -217,7 +217,7 @@ export function Account() {
                 className="w-full backdrop-blur-xl border-red-200 text-red-600 hover:bg-red-50 justify-start gap-3"
               >
                 <Trash2 className="w-5 h-5" />
-                Delete Account
+                Hapus Akun
               </Button>
             </div>
           </GlassCard>
@@ -225,8 +225,8 @@ export function Account() {
           {/* Info */}
           <GlassCard className="p-4">
             <p className="text-xs text-center text-muted-foreground">
-              Your data is stored locally on your device. We don't collect any personal health
-              information. All features are free with no payment required.
+              Data Anda disimpan secara lokal di perangkat Anda. Kami tidak mengumpulkan informasi
+              kesehatan pribadi. Semua fitur gratis tanpa biaya tambahan.
             </p>
           </GlassCard>
         </div>

@@ -25,7 +25,7 @@ export function Glossary() {
   useEffect(() => {
     fetch("/data/glossary.json")
       .then((res) => {
-        if (!res.ok) throw new Error("Failed to load glossary data");
+        if (!res.ok) throw new Error("Gagal memuat data glosarium");
         return res.json();
       })
       .then((data: Condition[]) => {
@@ -33,8 +33,8 @@ export function Glossary() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error loading glossary:", err);
-        setError("Failed to load conditions. Please try again.");
+        console.error("Kesalahan memuat glosarium:", err);
+        setError("Gagal memuat kondisi. Silakan coba lagi.");
         setLoading(false);
       });
   }, []);
@@ -85,7 +85,7 @@ export function Glossary() {
           <div className="flex-1">
             <h1 className="text-xl">{selectedCondition.name}</h1>
             <p className="text-sm text-muted-foreground capitalize">
-              {selectedCondition.category.replace("-", " ")}
+              {selectedCondition.category === "common" ? "Umum" : selectedCondition.category === "serious" ? "Serius" : "Terkait Usia"}
             </p>
           </div>
         </div>
@@ -102,7 +102,7 @@ export function Glossary() {
                 <Icon className="w-6 h-6 text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="mb-2">What is it?</h3>
+                <h3 className="mb-2">Apa itu?</h3>
                 <p className="text-sm text-muted-foreground">{selectedCondition.description}</p>
               </div>
             </div>
@@ -112,7 +112,7 @@ export function Glossary() {
           <GlassCard className="p-5">
             <h3 className="mb-3 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-orange-500" />
-              Symptoms
+              Gejala
             </h3>
             <ul className="space-y-2">
               {selectedCondition.symptoms.map((symptom, i) => (
@@ -128,7 +128,7 @@ export function Glossary() {
           <GlassCard className="p-5">
             <h3 className="mb-3 flex items-center gap-2">
               <Shield className="w-5 h-5 text-green-500" />
-              Prevention & Management
+              Pencegahan & Manajemen
             </h3>
             <ul className="space-y-2">
               {selectedCondition.prevention.map((tip, i) => (
@@ -144,7 +144,7 @@ export function Glossary() {
           <GlassCard className="p-5">
             <h3 className="mb-3 flex items-center gap-2">
               <Search className="w-5 h-5 text-blue-500" />
-              How it's Detected
+              Bagaimana Cara Dideteksi
             </h3>
             <ul className="space-y-2">
               {selectedCondition.detection.map((method, i) => (
@@ -161,8 +161,8 @@ export function Glossary() {
               <div className="flex items-start gap-3">
                 <AlertTriangle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-muted-foreground">
-                  This is a serious condition. If you experience symptoms, consult an eye care
-                  professional immediately.
+                  Ini adalah kondisi serius. Jika Anda mengalami gejala-gejala tersebut, segera konsultasikan
+                  dengan ahli perawatan mata.
                 </p>
               </div>
             </GlassCard>
@@ -183,8 +183,8 @@ export function Glossary() {
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-2xl">Eye Conditions</h1>
-          <p className="text-sm text-muted-foreground">Learn about common issues</p>
+          <h1 className="text-2xl">Kondisi Mata</h1>
+          <p className="text-sm text-muted-foreground">Pelajari masalah mata yang umum</p>
         </div>
       </div>
 
@@ -195,7 +195,7 @@ export function Glossary() {
           <Input
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search conditions..."
+            placeholder="Cari kondisi..."
             className="pl-12 backdrop-blur-xl border-white/50 rounded-2xl"
             style={{ background: "rgba(255, 255, 255, 0.7)" }}
           />
@@ -206,15 +206,15 @@ export function Glossary() {
       <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
         <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-blue-100 text-blue-700 text-xs whitespace-nowrap">
           <Info className="w-3 h-3" />
-          Common
+          Umum
         </div>
         <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-red-100 text-red-700 text-xs whitespace-nowrap">
           <AlertTriangle className="w-3 h-3" />
-          Serious
+          Serius
         </div>
         <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-purple-100 text-purple-700 text-xs whitespace-nowrap">
           <Eye className="w-3 h-3" />
-          Age-Related
+          Terkait Usia
         </div>
       </div>
 
@@ -233,7 +233,7 @@ export function Glossary() {
             onClick={() => window.location.reload()}
             className="mt-4 text-sm text-primary hover:underline"
           >
-            Try Again
+            Coba Lagi
           </button>
         </GlassCard>
       )}
@@ -270,7 +270,7 @@ export function Glossary() {
 
           {filteredConditions.length === 0 && (
             <GlassCard className="p-8 text-center">
-              <p className="text-muted-foreground">No conditions found matching your search.</p>
+              <p className="text-muted-foreground">Tidak ada kondisi yang cocok dengan pencarian Anda.</p>
             </GlassCard>
           )}
         </div>

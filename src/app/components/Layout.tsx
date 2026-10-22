@@ -8,11 +8,11 @@ export function Layout() {
   const navigate = useNavigate();
 
   const navItems = [
-    { path: "/", icon: Home, label: "Home" },
-    { path: "/scanner", icon: Camera, label: "Scanner" },
-    { path: "/guide", icon: BookOpen, label: "Guide" },
-    { path: "/glossary", icon: Book, label: "Glossary" },
-    { path: "/account", icon: User, label: "Account" },
+    { path: "/", icon: Home, label: "Beranda" },
+    { path: "/scanner", icon: Camera, label: "Pemindai" },
+    { path: "/guide", icon: BookOpen, label: "Panduan" },
+    { path: "/glossary", icon: Book, label: "Glosarium" },
+    { path: "/account", icon: User, label: "Akun" },
   ];
 
   const isActive = (path: string) => {

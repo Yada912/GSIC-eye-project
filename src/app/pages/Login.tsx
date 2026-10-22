@@ -39,9 +39,9 @@ export function Login() {
               <Eye className="w-10 h-10 text-white" />
             </div>
           </div>
-          <h1 className="text-2xl mb-2">Welcome to EyeCare</h1>
+          <h1 className="text-2xl mb-2">Selamat datang di EyeCare</h1>
           <p className="text-sm text-muted-foreground">
-            {isSignUp ? "Create an account to save your chats" : "Sign in to access chat features"}
+            {isSignUp ? "Buat akun untuk menyimpan obrolan Anda" : "Masuk untuk mengakses fitur obrolan"}
           </p>
         </div>
 
@@ -52,13 +52,13 @@ export function Login() {
               <div className="space-y-2">
                 <label className="text-sm flex items-center gap-2">
                   <UserIcon className="w-4 h-4 text-primary" />
-                  Name
+                  Nama
                 </label>
                 <Input
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Your name"
+                  placeholder="Nama Anda"
                   required={isSignUp}
                   className="backdrop-blur-xl border-white/50"
                   style={{ background: "rgba(255, 255, 255, 0.6)" }}
@@ -75,7 +75,7 @@ export function Login() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
+                placeholder="email@anda.com"
                 required
                 className="backdrop-blur-xl border-white/50"
                 style={{ background: "rgba(255, 255, 255, 0.6)" }}
@@ -85,7 +85,7 @@ export function Login() {
             <div className="space-y-2">
               <label className="text-sm flex items-center gap-2">
                 <Lock className="w-4 h-4 text-primary" />
-                Password
+                Kata Sandi
               </label>
               <Input
                 type="password"
@@ -102,7 +102,7 @@ export function Login() {
               type="submit"
               className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white shadow-lg shadow-blue-500/30"
             >
-              {isSignUp ? "Create Account" : "Sign In"}
+              {isSignUp ? "Buat Akun" : "Masuk"}
             </Button>
           </form>
         </GlassCard>
@@ -113,14 +113,14 @@ export function Login() {
             onClick={() => setIsSignUp(!isSignUp)}
             className="text-sm text-primary active:scale-95 transition-transform"
           >
-            {isSignUp ? "Already have an account? Sign in" : "Don't have an account? Sign up"}
+            {isSignUp ? "Sudah punya akun? Masuk" : "Belum punya akun? Daftar"}
           </button>
         </div>
 
         {/* Info */}
         <GlassCard className="p-4 mt-6">
           <p className="text-xs text-center text-muted-foreground">
-            Your account is only used to save chat history. No payment information is required.
+            Akun Anda hanya digunakan untuk menyimpan riwayat obrolan. Tidak diperlukan informasi pembayaran.
           </p>
         </GlassCard>
       </div>
